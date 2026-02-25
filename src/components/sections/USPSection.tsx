@@ -1,103 +1,124 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useInView } from 'react-intersection-observer';
-import { cn } from '@/lib/utils';
-import { SectionLabel } from '@/components/ui/SectionLabel';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { staggerContainer, scaleIn } from '@/lib/animations';
 
-const uspCards = [
+const faqs = [
   {
-    badge: '2 SECONDS',
-    title: 'From uploaded to validated. Not 24 hours. Two seconds.',
-    body: 'Dera uses YOLOv11 Computer Vision to move the progress bar from Submitted to Validated the moment the upload completes. The cost of the staff sitting behind a screen reviewing photos manually is removed entirely.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    question: 'How fast does Dera process a claim?',
+    answer: 'From photo upload to validated damage report in under two seconds. Dera uses YOLOv11 Computer Vision to move the progress bar from Submitted to Validated the moment the upload completes. The cost of staff sitting behind a screen reviewing photos manually is removed entirely.',
   },
   {
-    badge: 'FRAUD SHIELD',
-    title: 'Every photo is a potential fraud attempt until proven otherwise.',
-    body: 'EXIF Data Triangulation cross-references the photo\'s embedded GPS coordinates and timestamp against the claim. If the image was taken three weeks ago in Abuja and the accident allegedly happened today in Lagos, the claim does not advance.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
+    question: 'How does Dera detect fraudulent claims?',
+    answer: 'Every photo is a potential fraud attempt until proven otherwise. EXIF Data Triangulation cross-references the photo\'s embedded GPS coordinates and timestamp against the claim. If the image was taken three weeks ago in Abuja and the accident allegedly happened today in Lagos, the claim does not advance.',
   },
   {
-    badge: 'LIVE TRACKING',
-    title: 'The insurer\'s job does not end when the car reaches the garage.',
-    body: 'Dera gives authorized mechanics a lightweight update interface. When they tap "Bumper Spraying in Progress," that milestone updates your customer\'s app in real time. The information gap is solved at the infrastructure level.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M9 19l-5-2V4l5 2 6-2 5 2v13l-5-2-6 2z" />
-        <path d="M9 6v13M15 4v13" />
-      </svg>
-    ),
+    question: 'Can insurers track repairs in real time?',
+    answer: 'Dera gives authorized mechanics a lightweight update interface. When they tap "Bumper Spraying in Progress," that milestone updates your customer\'s app in real time. The information gap is solved at the infrastructure level.',
+  },
+  {
+    question: 'Is Dera compliant with NIIRA 2025?',
+    answer: 'Yes. Dera is built for NIIRA 2025 compliance from the ground up. The platform automates the 60-day settlement mandate through real-time claim processing, reducing manual handoffs that create compliance risk.',
+  },
+  {
+    question: 'How does Dera connect insurers with garages?',
+    answer: 'The three closest authorized garages receive a job request via the Partner API. The first to accept gets the assignment. Your customer knows their assigned garage within seconds — no phone calls, no back-and-forth.',
   },
 ];
 
+const FAQItem = ({ faq, index, isOpen, onToggle }: {
+  faq: typeof faqs[0];
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.08, duration: 0.4 }}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full flex items-start justify-between py-6 text-left group"
+      >
+        <span className="text-lg lg:text-xl font-bold text-[#0A1628] pr-8 leading-snug group-hover:text-[#1A3FD4] transition-colors">
+          {faq.question}
+        </span>
+        <div
+          className="shrink-0 w-8 h-8 rounded-full border border-[#E8EEFF] flex items-center justify-center mt-0.5 transition-all"
+          style={{
+            background: isOpen ? '#1A3FD4' : 'transparent',
+            borderColor: isOpen ? '#1A3FD4' : '#E8EEFF',
+          }}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            className="transition-transform duration-300"
+            style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
+          >
+            <path d="M7 1v12M1 7h12" stroke={isOpen ? 'white' : '#3D4A6B'} strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="text-base text-[#3D4A6B] leading-relaxed pb-6 pr-16">
+              {faq.answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 export const USPSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="features" className="relative py-24 lg:py-32 bg-[#0D2149] overflow-hidden">
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-      
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20 relative z-10">
+    <section id="features" className="relative py-24 lg:py-32 bg-white overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16" ref={ref}>
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 lg:mb-20">
-          <SectionLabel theme="dark" className="justify-center mb-6">WHY DERA IS DIFFERENT</SectionLabel>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-            Three problems nobody <br />
-            else solved for Nigeria.
-          </h2>
-        </div>
-
-        {/* Cards Grid */}
         <motion.div
-          ref={ref}
-          variants={staggerContainer}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
+          className="mb-4"
         >
-          {uspCards.map((card, i) => (
-            <motion.div key={i} variants={scaleIn}>
-              <Card 
-                variant="elevated" 
-                padding="lg" 
-                className="h-full bg-white hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 group"
-              >
-                <div className="flex flex-col h-full">
-                  <div className="flex justify-between items-start mb-8">
-                    <div className="bg-blue-50 text-blue-700 w-12 h-12 rounded-[12px] flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                      {card.icon}
-                    </div>
-                    <Badge variant="blue" size="md">{card.badge}</Badge>
-                  </div>
-
-                  <h3 className="font-display text-xl lg:text-2xl font-bold text-blue-900 mb-4 leading-tight">
-                    {card.title}
-                  </h3>
-                  
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {card.body}
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+          <h2 className="font-headline text-6xl sm:text-7xl lg:text-8xl font-bold text-[#0A1628] tracking-tight leading-[1.05] mb-4">
+            FAQs
+          </h2>
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#3D4A6B]">
+            Everything You Need to Know.
+          </p>
         </motion.div>
+
+        {/* FAQ List */}
+        <div className="max-w-3xl mt-12">
+          {faqs.map((faq, i) => (
+            <div key={i} className={i !== faqs.length - 1 ? 'border-b border-[#E8EEFF]' : ''}>
+              <FAQItem
+                faq={faq}
+                index={i}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
