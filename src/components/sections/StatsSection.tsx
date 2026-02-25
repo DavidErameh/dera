@@ -52,7 +52,7 @@ export const StatsSection = () => {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section id="insurers" className="bg-white py-24 lg:py-32 overflow-hidden">
+    <section id="insurers" className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left: Header + Placeholder */}

@@ -89,7 +89,7 @@ export const USPSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="features" className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="features" className="relative py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16" ref={ref}>
         {/* Header */}
         <motion.div

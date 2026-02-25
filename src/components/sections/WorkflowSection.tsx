@@ -416,7 +416,7 @@ const StepSubSection = ({ step, index }: { step: typeof workflowSteps[0]; index:
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: 0.1, ease: [0, 0, 0.2, 1] }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center py-16 lg:py-24 ${
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center py-12 lg:py-16 ${
         index !== 0 ? 'border-t border-[#E8EEFF]' : ''
       }`}
     >
@@ -536,7 +536,7 @@ export const WorkflowSection = () => {
   const { ref: headerRef, inView: headerInView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
-    <section id="workflow" className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="workflow" className="relative py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
         <motion.div
