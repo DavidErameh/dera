@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import { MobileGate } from "@/components/ui/MobileGate";
+
 import "./globals.css";
 
 const coolvetica = localFont({
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${coolvetica.variable} scroll-smooth`}>
       <body className="antialiased font-body">
-        <MobileGate />
+
         {children}
       </body>
     </html>
