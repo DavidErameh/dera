@@ -3,17 +3,19 @@ import { cn } from '@/lib/utils';
 
 const LogoWhite = () => (
   <div className="flex items-center gap-2 group cursor-pointer">
-    <div className="relative w-7 h-7 flex items-center justify-center">
+    <div className="relative w-[70px] h-[70px] flex items-center justify-center">
       <img src="/image.svg" alt="Dera Logo" className="w-full h-full object-contain brightness-0 invert" />
     </div>
-    <span className="font-display font-bold text-lg text-white tracking-tight">Dera</span>
   </div>
 );
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0A1628] pt-16 pb-8 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+    <footer 
+      className="text-white pt-16 pb-8 overflow-hidden"
+      style={{ background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)' }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24">
           {/* Column 1: Brand */}
           <div className="flex flex-col items-start">
@@ -27,13 +29,18 @@ export const Footer = () => {
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-6 block">Product</span>
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-4">
-              {['How It Works', 'Features', 'For Insurers', 'For Garages'].map((link) => (
-                <li key={link}>
+              {[
+                { name: 'Problem', href: '#problem' },
+                { name: 'Solution', href: '#workflow' },
+                { name: 'FAQs', href: '#features' },
+                { name: 'Why now?', href: '#insurers' },
+              ].map((link) => (
+                <li key={link.name}>
                   <a 
-                    href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} 
+                    href={link.href} 
                     className="text-sm text-white/70 hover:text-white transition-colors duration-200"
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -44,20 +51,17 @@ export const Footer = () => {
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-6 block">Contact</span>
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-sm text-white/70">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-white/40">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <path d="M22 6l-10 7L2 6" />
+              <a 
+                href="https://x.com/cyber_rekk" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white/40">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.925H5.06l12.023 13.845z" />
                 </svg>
-                hello@derainsure.com
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/70">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-white/40">
-                  <path d="M12 21s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                Lagos, Nigeria
-              </div>
+                Mololuwa
+              </a>
             </div>
           </div>
         </div>

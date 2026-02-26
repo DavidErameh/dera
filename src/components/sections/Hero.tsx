@@ -3,13 +3,14 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/Button';
+import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const navLinks = [
-  { name: 'How It Works', href: '#workflow' },
-  { name: 'Features', href: '#features' },
-  { name: 'For Insurers', href: '#insurers' },
-  { name: 'For Investors', href: '#investors' },
+  { name: 'Problem', href: '#problem' },
+  { name: 'Solution', href: '#workflow' },
+  { name: 'FAQs', href: '#features' },
+  { name: 'Why now?', href: '#insurers' },
 ];
 
 /* ─── Pixelated Aurora Dot Wave (black dots on white) ─── */
@@ -105,7 +106,7 @@ export const Hero = () => {
     >
       {/* ─── White Card ─── */}
       <div
-        className="relative w-full max-w-[1440px] rounded-3xl overflow-hidden"
+        className="relative w-full max-w-7xl rounded-3xl overflow-hidden mx-auto"
         style={{
           background: '#FFFFFF',
           minHeight: 'min(92vh, 900px)',
@@ -125,18 +126,18 @@ export const Hero = () => {
         />
 
         {/* ─── Header Nav Bar ─── */}
-        <div className="relative flex items-center px-6 md:px-10 lg:px-16 pt-6 pb-4" style={{ zIndex: 10 }}>
+        <div className="relative flex items-center px-6 md:px-10 lg:px-12 pt-6 pb-4" style={{ zIndex: 10 }}>
           {/* Logo */}
-          <a href="/" className="flex items-center h-10 overflow-hidden">
+          <a href="/" className="flex items-center justify-center overflow-hidden" style={{ height: '56px', width: '180px', marginTop: '8px' }}>
             <img
               src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
               alt="Dera"
-              className="h-30 w-auto"
+              style={{ minWidth: '180px', minHeight: '180px', objectFit: 'cover', objectPosition: 'center 45%' }}
             />
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 ml-16">
+          <nav className="hidden md:flex items-center gap-8 ml-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -151,7 +152,7 @@ export const Hero = () => {
         </div>
 
         {/* ─── Hero Content (two-column: text left, blue card right) ─── */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-6 md:px-10 lg:px-16" style={{ zIndex: 10, minHeight: 'calc(min(92vh, 900px) - 100px)' }}>
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-6 md:px-10 lg:px-12" style={{ zIndex: 10, minHeight: 'calc(min(92vh, 900px) - 100px)' }}>
           {/* Left Column: Text */}
           <motion.div
             variants={staggerContainer}
@@ -162,14 +163,14 @@ export const Hero = () => {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A1628] leading-[1.1] tracking-wide mb-6"
+              className="font-headline text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold text-[#0A1628] leading-[1.05] mb-6"
             >
-              Settle Claims in{' '}
+              Settle Claims in <br />
               <span
                 className="text-transparent bg-clip-text"
                 style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
               >
-                60 Seconds
+                60 Minutes
               </span>
               <br />
               not{' '}
@@ -182,7 +183,7 @@ export const Hero = () => {
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-base md:text-lg text-[#3D4A6B] leading-relaxed max-w-xl mb-10"
+              className="text-lg md:text-xl lg:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-10"
             >
               Built For Tier 1 African Insurers, Designed For NIIRA Compliance &amp; Regulations.
             </motion.p>
@@ -213,41 +214,100 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Stacked Cards */}
+          {/* Right Column: iPhone 17 Pro — Claim Approved */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0, 0, 0.2, 1] }}
-            className="flex items-center justify-center"
+            className="flex items-start justify-center ml-2 lg:ml-4"
           >
-            <div className="relative w-full max-w-lg aspect-[3/4]">
-              {/* Back card (behind, offset up-right, Problem Section style) */}
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(234, 240, 255, 0.5) 0%, rgba(220, 230, 255, 0.25) 100%)',
-                  backdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(0, 0, 0, 0.06)',
-                  boxShadow: '20px 20px 60px rgba(26, 63, 212, 0.3), 8px 8px 24px rgba(26, 63, 212, 0.2)',
-                  transform: 'translate(20px, -24px)',
-                }}
-              />
-              {/* Blue gradient card (front) */}
-              <div
-                className="relative w-full h-full rounded-3xl overflow-hidden"
-                style={{
-                  background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
-                  boxShadow: '20px 20px 60px rgba(26, 63, 212, 0.3), 8px 8px 24px rgba(26, 63, 212, 0.2)',
-                }}
-              >
-                {/* Black gradient at bottom */}
-                <div
-                  className="absolute bottom-0 left-0 w-full h-1/2"
-                  style={{
-                    background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.9) 100%)',
-                  }}
-                />
+            <div style={{ perspective: '1200px' }}>
+            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '120px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
+            <Iphone17Pro width={380} height={760} frameColor="#80828A" className="text-white">
+              <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 24px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '72px' }}>
+                  {/* Green Checkmark - Simplified Look */}
+                  <div
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                      boxShadow: '0 12px 24px rgba(16, 185, 129, 0.35)',
+                      marginBottom: '4px'
+                    }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ width: '28px', height: '28px' }}>
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </div>
+
+                  <h3 className="font-headline" style={{ fontSize: '24px', fontWeight: 800, color: '#0A1628', marginBottom: '16px', letterSpacing: '0.02em', textAlign: 'center', whiteSpace: 'nowrap' }}>
+                    Claim Approved
+                  </h3>
+
+                  {/* Action Buttons */}
+                  <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', width: '100%', marginTop: '4px' }}>
+                    <button style={{
+                      flex: 1,
+                      height: '32px',
+                      background: '#F1F3F9',
+                      color: '#4B5563',
+                      fontSize: '9px',
+                      fontWeight: 700,
+                      borderRadius: '8px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                      transition: 'all 0.2s',
+                    }}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px' }}>
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                        <polyline points="16 6 12 2 8 6"/>
+                        <line x1="12" y1="2" x2="12" y2="15"/>
+                      </svg>
+                      <span>Share</span>
+                    </button>
+                    
+                    <button style={{
+                      flex: 1,
+                      height: '32px',
+                      background: '#F1F3F9',
+                      color: '#4B5563',
+                      fontSize: '9px',
+                      fontWeight: 700,
+                      borderRadius: '8px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                      transition: 'all 0.2s',
+                    }}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px' }}>
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                      </svg>
+                      <span>Details</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+            </Iphone17Pro>
+            </div>
             </div>
           </motion.div>
         </div>

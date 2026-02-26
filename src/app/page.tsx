@@ -3,7 +3,6 @@ import { ProblemSection } from '@/components/sections/ProblemSection';
 import { WorkflowSection } from '@/components/sections/WorkflowSection';
 import { USPSection } from '@/components/sections/USPSection';
 import { StatsSection } from '@/components/sections/StatsSection';
-import { ComplianceSection } from '@/components/sections/ComplianceSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { Footer } from '@/components/layout/Footer';
 
@@ -15,7 +14,6 @@ export default function Home() {
       <WorkflowSection />
       <USPSection />
       <StatsSection />
-      <ComplianceSection />
       <CTASection />
       <Footer />
     </main>

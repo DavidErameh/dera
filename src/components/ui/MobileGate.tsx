@@ -27,7 +27,7 @@ export const MobileGate = () => {
       </div>
 
       {/* Message */}
-      <h2 className="font-headline text-2xl font-bold text-[#0A1628] mb-3 tracking-tight">
+      <h2 className="font-headline text-2xl font-bold text-[#0A1628] mb-3">
         Desktop Experience Only
       </h2>
       <p className="text-base text-[#3D4A6B] leading-relaxed max-w-sm mb-8">

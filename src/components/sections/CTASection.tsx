@@ -75,8 +75,8 @@ export const CTASection = () => {
   };
 
   return (
-    <section id="investors" className="bg-white py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+    <section id="investors" className="bg-white py-16 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-[580px] mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
