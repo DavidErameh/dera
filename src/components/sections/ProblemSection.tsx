@@ -52,11 +52,15 @@ export const ProblemSection = () => {
             const isMiddle = i === 1;
             
             return (
-              <motion.div key={i} variants={fadeInUp}>
+              <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                className="snap-center shrink-0 w-[85vw] md:w-auto"
+              >
                 <div
-                  className="rounded-2xl p-8 md:p-10 flex flex-col justify-between"
+                  className="rounded-2xl p-8 flex flex-col justify-between h-full"
                   style={{
-                    minHeight: '420px',
+                    minHeight: '380px',
                     background: isMiddle 
                       ? 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)'
                       : 'linear-gradient(135deg, rgba(234, 240, 255, 0.5) 0%, rgba(220, 230, 255, 0.25) 100%)',

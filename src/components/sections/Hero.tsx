@@ -166,7 +166,7 @@ export const Hero = () => {
               variants={fadeInUp}
               className="font-headline text-[28px] sm:text-4xl md:text-[80px] font-bold text-[#0A1628] leading-[1.1] mb-4 md:mb-6"
             >
-              <span className="md:hidden">Settle Claims in{' '}
+              <span className="md:hidden whitespace-nowrap">Settle Claims in{' '}
                 <span
                   className="text-transparent bg-clip-text"
                   style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
@@ -319,9 +319,9 @@ export const Hero = () => {
             </Iphone17Pro>
             </div>
             </div>
-            {/* Mobile iPhone (scaled up, bottom cropped like desktop) */}
-            <div className="md:hidden w-full flex justify-center" style={{ height: '400px', overflow: 'hidden' }}>
-              <div style={{ transform: 'scale(1.6)', transformOrigin: 'top center', filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2))' }}>
+            {/* Mobile iPhone (scaled appropriately, bottom cropped, strictly centered via absolute positioning) */}
+            <div className="md:hidden w-full relative" style={{ height: '360px', overflow: 'hidden' }}>
+              <div className="absolute top-0 left-1/2" style={{ transform: 'translateX(-32%) scale(1.2)', transformOrigin: 'top center', filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2))' }}>
               <Iphone17Pro width={280} height={560} frameColor="#80828A" className="text-white">
                 <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 20px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '56px' }}>

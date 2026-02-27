@@ -886,24 +886,34 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
             {/* ─── Analysis card (floating outside top-left) ─── */}
             <motion.div
               className="absolute pointer-events-none -left-4 md:-left-12 lg:-left-[40%]"
-              style={{ top: '15%', zIndex: 20 }}
-              initial={{ opacity: 0, y: 16, scale: 0.95 }}
+              style={{ top: '8%', zIndex: 20 }}
+              initial={{ opacity: 0, y: -40, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 2, duration: 0.6, ease: [0, 0, 0.2, 1] }}
+              transition={{ delay: 2, duration: 0.7, ease: [0, 0, 0.2, 1] }}
             >
               <div
-                className="rounded-2xl px-8 py-8 text-left w-[290px] md:min-w-[320px]"
+                className="rounded-2xl px-6 py-6 text-left w-[290px] md:min-w-[320px]"
                 style={{
-                  background: '#FFFFFF',
-                  border: '1px solid rgba(0, 0, 0, 0.06)',
-                  boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
+                  boxShadow: '0 16px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
                 }}
               >
-                <p className="text-xl font-bold text-[#0A1628] mb-4">Benz C300</p>
-                <div className="text-lg text-[#3D4A6B] leading-loose space-y-1">
-                  <p><span className="font-semibold text-[#0A1628]">Component:</span> Front Bumper</p>
-                  <p><span className="font-semibold text-[#0A1628]">Severity:</span> Moderate</p>
-                  <p><span className="font-semibold text-[#0A1628]">Confidence:</span> 94.2%</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center shadow-lg shadow-[#10B981]/30">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </div>
+                  <p className="text-[17px] font-semibold text-[#0A1628] leading-none mt-0.5">Benz C300 Analysis</p>
+                </div>
+                
+                <div className="text-[15px] text-[#3D4A6B] leading-relaxed space-y-1.5 ml-11">
+                  <p><span className="font-medium text-[#0A1628]">Component:</span> Front Bumper</p>
+                  <p><span className="font-medium text-[#0A1628]">Severity:</span> Moderate</p>
+                  <p><span className="font-medium text-[#0A1628]">Confidence:</span> 94.2%</p>
                 </div>
               </div>
             </motion.div>
