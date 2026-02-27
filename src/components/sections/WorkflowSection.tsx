@@ -885,14 +885,14 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
 
             {/* ─── Analysis card (floating outside top-left) ─── */}
             <motion.div
-              className="absolute pointer-events-none left-4 lg:-left-[40%]"
+              className="absolute pointer-events-none -left-4 md:-left-12 lg:-left-[40%]"
               style={{ top: '15%', zIndex: 20 }}
               initial={{ opacity: 0, y: 16, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 2, duration: 0.6, ease: [0, 0, 0.2, 1] }}
             >
               <div
-                className="rounded-2xl px-10 py-8 text-left min-w-[320px]"
+                className="rounded-2xl px-8 py-8 text-left w-[290px] md:min-w-[320px]"
                 style={{
                   background: '#FFFFFF',
                   border: '1px solid rgba(0, 0, 0, 0.06)',

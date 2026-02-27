@@ -128,11 +128,12 @@ export const Hero = () => {
         {/* ─── Header Nav Bar ─── */}
         <div className="relative flex items-center px-6 md:px-10 lg:px-12 pt-6 pb-4" style={{ zIndex: 10 }}>
           {/* Logo */}
-          <a href="/" className="flex items-center justify-center overflow-hidden" style={{ height: '56px', width: '180px', marginTop: '8px' }}>
+          <a href="/" className="flex items-center justify-center overflow-hidden h-[37px] w-[120px] md:h-[56px] md:w-[180px]" style={{ marginTop: '8px' }}>
             <img
               src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
               alt="Dera"
-              style={{ minWidth: '180px', minHeight: '180px', objectFit: 'cover', objectPosition: 'center 45%' }}
+              className="min-w-[120px] min-h-[120px] md:min-w-[180px] md:min-h-[180px] object-cover"
+              style={{ objectPosition: 'center 45%' }}
             />
           </a>
 
@@ -152,38 +153,47 @@ export const Hero = () => {
         </div>
 
         {/* ─── Hero Content (two-column: text left, blue card right) ─── */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6 md:px-12" style={{ zIndex: 10, minHeight: 'calc(min(92vh, 900px) - 100px)' }}>
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center px-5 md:px-12 py-8 md:py-0 md:min-h-[calc(min(92vh,900px)-100px)]" style={{ zIndex: 10 }}>
           {/* Left Column: Text */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col items-start text-left"
+            className="flex flex-col items-center text-center md:items-start md:text-left"
           >
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-headline text-5xl sm:text-6xl md:text-[80px] font-bold text-[#0A1628] leading-[1.05] mb-6"
+              className="font-headline text-[28px] sm:text-4xl md:text-[80px] font-bold text-[#0A1628] leading-[1.1] mb-4 md:mb-6"
             >
-              Settle Claims in <br />
-              <span
-                className="text-transparent bg-clip-text"
-                style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
-              >
-                60 Minutes
+              <span className="md:hidden">Settle Claims in{' '}
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                >
+                  60 Minutes
+                </span>
+              </span>
+              <span className="hidden md:inline">Settle Claims in <br />
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                >
+                  60 Minutes
+                </span>
               </span>
               <br />
               not{' '}
               <span className="relative inline-block text-[#0A1628]">
                 6 weeks
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[4px] bg-[#0A1628]/70" />
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[3px] md:h-[4px] bg-[#0A1628]/70" />
               </span>
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-lg sm:text-xl md:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-10"
+              className="text-sm sm:text-base md:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-6 md:mb-10"
             >
               Built For Tier 1 African Insurers, Designed For NIIRA Compliance &amp; Regulations.
             </motion.p>
@@ -191,12 +201,12 @@ export const Hero = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col md:flex-row items-center gap-2 md:gap-4 justify-center md:justify-start w-full md:w-auto"
             >
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" className="text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3">
                 Request Early Access
               </Button>
-              <Button variant="ghost" size="lg">
+              <Button variant="ghost" size="lg" className="text-sm md:text-base">
                 How it works
               </Button>
             </motion.div>
@@ -204,7 +214,7 @@ export const Hero = () => {
             {/* Trust bar */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap items-center gap-3 mt-8 text-sm text-[#0A1628]/30"
+              className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mt-5 md:mt-8 text-xs md:text-sm text-[#0A1628]/30"
             >
               <span>NIIRA 2025 Ready</span>
               <span className="w-1 h-1 rounded-full bg-[#0A1628]/20" />
@@ -219,10 +229,10 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0, 0, 0.2, 1] }}
-            className="flex items-start justify-center ml-2 md:ml-4"
+            className="flex items-center justify-center px-6 md:px-0 md:items-start md:ml-4"
           >
-            <div style={{ perspective: '1200px' }}>
-            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '20px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
+            <div className="hidden md:block" style={{ perspective: '1200px' }}>
+            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '120px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
             <Iphone17Pro width={380} height={760} frameColor="#80828A" className="text-white">
               <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 24px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '72px' }}>
@@ -308,6 +318,46 @@ export const Hero = () => {
               </div>
             </Iphone17Pro>
             </div>
+            </div>
+            {/* Mobile iPhone (no 3D transform, clean centered) */}
+            <div className="md:hidden w-full max-w-[280px] mx-auto" style={{ filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15))' }}>
+              <Iphone17Pro width={280} height={560} frameColor="#80828A" className="text-white">
+                <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 20px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '56px' }}>
+                    {/* Green Checkmark */}
+                    <div
+                      style={{
+                        width: '48px',
+                        height: '48px',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                        boxShadow: '0 8px 16px rgba(16, 185, 129, 0.35)',
+                        marginBottom: '4px'
+                      }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ width: '22px', height: '22px' }}>
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <h3 className="font-headline" style={{ fontSize: '18px', fontWeight: 800, color: '#0A1628', marginBottom: '12px', letterSpacing: '0.02em', textAlign: 'center', whiteSpace: 'nowrap' }}>
+                      Claim Approved
+                    </h3>
+                    <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', width: '100%', marginTop: '4px' }}>
+                      <button style={{ flex: 1, height: '28px', background: '#F1F3F9', color: '#4B5563', fontSize: '8px', fontWeight: 700, borderRadius: '8px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '10px', height: '10px' }}><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        <span>Share</span>
+                      </button>
+                      <button style={{ flex: 1, height: '28px', background: '#F1F3F9', color: '#4B5563', fontSize: '8px', fontWeight: 700, borderRadius: '8px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '10px', height: '10px' }}><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                        <span>Details</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Iphone17Pro>
             </div>
           </motion.div>
         </div>
