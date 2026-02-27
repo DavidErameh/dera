@@ -229,7 +229,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0, 0, 0.2, 1] }}
-            className="flex items-center justify-center px-6 md:px-0 md:items-start md:ml-4"
+            className="flex w-full items-center justify-center md:items-start md:ml-4"
           >
             <div className="hidden md:block" style={{ perspective: '1200px' }}>
             <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '120px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
@@ -319,8 +319,9 @@ export const Hero = () => {
             </Iphone17Pro>
             </div>
             </div>
-            {/* Mobile iPhone (no 3D transform, clean centered) */}
-            <div className="md:hidden w-full max-w-[280px] mx-auto" style={{ filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15))' }}>
+            {/* Mobile iPhone (scaled up, bottom cropped like desktop) */}
+            <div className="md:hidden w-full flex justify-center" style={{ height: '400px', overflow: 'hidden' }}>
+              <div style={{ transform: 'scale(1.6)', transformOrigin: 'top center', filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2))' }}>
               <Iphone17Pro width={280} height={560} frameColor="#80828A" className="text-white">
                 <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 20px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '56px' }}>
@@ -358,6 +359,7 @@ export const Hero = () => {
                   </div>
                 </div>
               </Iphone17Pro>
+              </div>
             </div>
           </motion.div>
         </div>
