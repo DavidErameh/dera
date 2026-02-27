@@ -25,7 +25,7 @@ export const ProblemSection = () => {
 
   return (
     <section id="problem" className="bg-white py-16 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12" ref={ref}>
         {/* Heading Area — full width, no diagram */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -33,10 +33,10 @@ export const ProblemSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-16"
         >
-          <h2 className="font-headline text-6xl sm:text-7xl lg:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             The Problem
           </h2>
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#3D4A6B]">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
             A Broken Insurance System
           </p>
         </motion.div>

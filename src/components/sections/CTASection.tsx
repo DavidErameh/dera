@@ -75,13 +75,13 @@ export const CTASection = () => {
   };
 
   return (
-    <section id="investors" className="bg-white py-16 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
+    <section id="investors" className="bg-white py-16 md:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-[580px] mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <SectionLabel className="justify-center mb-6">EARLY ACCESS</SectionLabel>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-blue-900 tracking-tight leading-tight mb-8">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-blue-900 tracking-tight leading-tight mb-8">
               Ready to run your first claim <br />
               through Dera?
             </h2>

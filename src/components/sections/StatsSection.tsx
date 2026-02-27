@@ -52,16 +52,16 @@ export const StatsSection = () => {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section id="insurers" className="bg-white py-16 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <section id="insurers" className="bg-white py-16 md:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12" ref={ref}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
           {/* Left: Header + Placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           >
-            <h2 className="font-headline text-6xl sm:text-7xl lg:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+            <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
               The Stakes
             </h2>
             <p className="text-2xl sm:text-3xl font-medium text-[#3D4A6B] mb-12">
@@ -140,7 +140,7 @@ export const StatsSection = () => {
                 className={`py-8 ${i !== stats.length - 1 ? 'border-b border-[#E8EEFF]' : ''}`}
               >
                 <div className="flex items-baseline gap-5 mb-2">
-                  <span className="font-headline text-5xl lg:text-6xl font-bold text-[#1A3FD4] leading-none whitespace-nowrap">
+                  <span className="font-headline text-5xl md:text-6xl font-bold text-[#1A3FD4] leading-none whitespace-nowrap">
                     {stat.isRange ? (
                       <span className="flex items-baseline">
                         <AnimatedNumber value={10} />

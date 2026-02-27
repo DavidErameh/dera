@@ -152,7 +152,7 @@ export const Hero = () => {
         </div>
 
         {/* ─── Hero Content (two-column: text left, blue card right) ─── */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-6 md:px-10 lg:px-12" style={{ zIndex: 10, minHeight: 'calc(min(92vh, 900px) - 100px)' }}>
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6 md:px-12" style={{ zIndex: 10, minHeight: 'calc(min(92vh, 900px) - 100px)' }}>
           {/* Left Column: Text */}
           <motion.div
             variants={staggerContainer}
@@ -163,7 +163,7 @@ export const Hero = () => {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-headline text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold text-[#0A1628] leading-[1.05] mb-6"
+              className="font-headline text-5xl sm:text-6xl md:text-[80px] font-bold text-[#0A1628] leading-[1.05] mb-6"
             >
               Settle Claims in <br />
               <span
@@ -183,7 +183,7 @@ export const Hero = () => {
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-lg md:text-xl lg:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-10"
+              className="text-lg sm:text-xl md:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-10"
             >
               Built For Tier 1 African Insurers, Designed For NIIRA Compliance &amp; Regulations.
             </motion.p>
@@ -219,10 +219,10 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0, 0, 0.2, 1] }}
-            className="flex items-start justify-center ml-2 lg:ml-4"
+            className="flex items-start justify-center ml-2 md:ml-4"
           >
             <div style={{ perspective: '1200px' }}>
-            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '120px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
+            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '20px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
             <Iphone17Pro width={380} height={760} frameColor="#80828A" className="text-white">
               <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 24px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '72px' }}>

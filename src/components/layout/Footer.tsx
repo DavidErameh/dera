@@ -3,8 +3,12 @@ import { cn } from '@/lib/utils';
 
 const LogoWhite = () => (
   <div className="flex items-center gap-2 group cursor-pointer">
-    <div className="relative w-[70px] h-[70px] flex items-center justify-center">
-      <img src="/image.svg" alt="Dera Logo" className="w-full h-full object-contain brightness-0 invert" />
+    <div className="relative flex items-center justify-center overflow-hidden" style={{ width: '235px', height: '73px' }}>
+      <img 
+        src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg" 
+        alt="Dera Logo" 
+        style={{ minWidth: '235px', minHeight: '235px', objectFit: 'cover', objectPosition: 'center 45%', filter: 'brightness(0) invert(1)' }}
+      />
     </div>
   </div>
 );
@@ -15,8 +19,8 @@ export const Footer = () => {
       className="text-white pt-16 pb-8 overflow-hidden"
       style={{ background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)' }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
           {/* Column 1: Brand */}
           <div className="flex flex-col items-start">
             <LogoWhite />

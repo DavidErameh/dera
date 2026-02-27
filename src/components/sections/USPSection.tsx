@@ -43,25 +43,19 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
         onClick={onToggle}
         className="w-full flex items-start justify-between py-6 text-left group"
       >
-        <span className="font-headline text-2xl lg:text-3xl font-normal text-[#2A313C] pr-8 leading-snug transition-colors">
+        <span className="font-headline text-2xl md:text-3xl font-normal text-[#2A313C] pr-8 leading-snug transition-colors">
           {faq.question}
         </span>
-        <div
-          className="shrink-0 w-8 h-8 rounded-full border border-[#E8EEFF] flex items-center justify-center mt-0.5 transition-all"
-          style={{
-            background: isOpen ? '#1A3FD4' : 'transparent',
-            borderColor: isOpen ? '#1A3FD4' : '#E8EEFF',
-          }}
-        >
+        <div className="shrink-0 w-8 h-8 flex items-center justify-center mt-0.5">
           <svg
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             viewBox="0 0 14 14"
             fill="none"
             className="transition-transform duration-300"
             style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
           >
-            <path d="M7 1v12M1 7h12" stroke={isOpen ? 'white' : '#3D4A6B'} strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M7 1v12M1 7h12" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </div>
       </button>
@@ -74,7 +68,7 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
             transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-lg lg:text-xl font-semibold text-[#2A313C] leading-relaxed pb-8 pr-16">
+            <p className="font-headline text-xl md:text-2xl font-medium text-[#2A313C] leading-relaxed pb-8 pr-16">
               {faq.answer}
             </p>
           </motion.div>
@@ -86,11 +80,11 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
 
 export const USPSection = () => {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="features" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12" ref={ref}>
+    <section id="features" className="relative py-16 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -98,10 +92,10 @@ export const USPSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-4"
         >
-          <h2 className="font-headline text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#3D4A6B]">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
             Everything You Need to Know.
           </p>
         </motion.div>

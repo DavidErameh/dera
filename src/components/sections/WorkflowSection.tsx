@@ -795,27 +795,27 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: 0.1, ease: [0, 0, 0.2, 1] }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center py-12 lg:py-16 ${
+      className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center py-12 md:py-16 ${
         index !== 0 ? 'border-t border-[#E8EEFF]' : ''
       }`}
     >
       {/* Content side: number + title + description */}
-      <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
+      <div className={isEven ? 'md:order-1' : 'md:order-2'}>
         <div className="flex items-baseline gap-4 mb-4">
-          <span className="font-headline text-6xl lg:text-8xl font-bold text-[#E8EEFF] select-none leading-none">
+          <span className="font-headline text-6xl md:text-8xl font-bold text-[#E8EEFF] select-none leading-none">
             {step.number}
           </span>
           <div className="h-[2px] flex-1 bg-gradient-to-r from-[#1230AA]/20 to-transparent" />
         </div>
-        <h3 className="font-headline text-3xl lg:text-4xl font-bold text-[#0A1628] mb-5">
+        <h3 className="font-headline text-3xl md:text-4xl font-bold text-[#0A1628] mb-5">
           {step.title}
         </h3>
-        <p className="text-lg lg:text-xl text-[#3D4A6B] leading-relaxed">
+        <p className="text-lg md:text-xl text-[#3D4A6B] leading-relaxed">
           {step.body}
         </p>
       </div>
 
-      <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
+      <div className={isEven ? 'md:order-2' : 'md:order-1'}>
         {step.number === '01' ? (
           <div className="max-w-lg mx-auto w-full">
             {renderStep01Visual()}
@@ -885,8 +885,8 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
 
             {/* ─── Analysis card (floating outside top-left) ─── */}
             <motion.div
-              className="absolute pointer-events-none"
-              style={{ left: '-40%', top: '15%', zIndex: 20 }}
+              className="absolute pointer-events-none left-4 lg:-left-[40%]"
+              style={{ top: '15%', zIndex: 20 }}
               initial={{ opacity: 0, y: 16, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 2, duration: 0.6, ease: [0, 0, 0.2, 1] }}
@@ -922,8 +922,8 @@ export const WorkflowSection = () => {
   const { ref: headerRef, inView: headerInView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
-    <section id="workflow" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
+    <section id="workflow" className="relative py-16 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <motion.div
           ref={headerRef}
@@ -932,10 +932,10 @@ export const WorkflowSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-8"
         >
-          <h2 className="font-headline text-6xl sm:text-7xl lg:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             The Workflow
           </h2>
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#3D4A6B]">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
             Six Steps. Zero Phone Calls.
           </p>
         </motion.div>
