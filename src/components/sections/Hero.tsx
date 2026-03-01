@@ -244,7 +244,7 @@ export const Hero = () => {
                 {/* Claim Approved Screen UI */}
                 <div className="flex flex-col items-center pt-14 px-4 w-full h-full pb-6">
                   {/* Green Checkmark Icon with Glow */}
-                  <div className="relative flex items-center justify-center w-[50px] h-[50px] rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4),0_0_30px_rgba(34,197,94,0.2)] mb-5">
+                  <div className="relative flex items-center justify-center w-[60px] h-[60px] rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4),0_0_30px_rgba(34,197,94,0.2)] mb-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -253,7 +253,7 @@ export const Hero = () => {
                       strokeWidth="3.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-6 h-6 text-white"
+                      className="w-7 h-7 text-white"
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -268,7 +268,7 @@ export const Hero = () => {
                   </p>
 
                   {/* Claim Details Card */}
-                  <div className="w-full bg-[#f8f9fa] rounded-[10px] p-3 mt-6 space-y-2.5 shadow-sm border border-slate-100">
+                  <div className="w-full bg-[#f8f9fa] rounded-[10px] p-3 mt-4 space-y-2.5 shadow-sm border border-slate-100">
                     <div className="flex justify-between items-center">
                       <span className="text-slate-500 font-medium text-[10px]">Claim ID:</span>
                       <span className="text-slate-900 font-semibold text-[10px]">CLM-89742</span>
@@ -279,7 +279,12 @@ export const Hero = () => {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-slate-500 font-medium text-[10px]">Time:</span>
-                      <span className="text-red-500 font-semibold text-[10px]">58 seconds</span>
+                      <span 
+                        className="font-semibold text-[10px] text-transparent bg-clip-text"
+                        style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                      >
+                        58 seconds
+                      </span>
                     </div>
                   </div>
                 </div>
