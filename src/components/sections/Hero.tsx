@@ -3,8 +3,8 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/Button';
-import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 
 const navLinks = [
   { name: 'Problem', href: '#problem' },
@@ -109,7 +109,6 @@ export const Hero = () => {
         className="relative w-full max-w-7xl rounded-3xl overflow-hidden mx-auto"
         style={{
           background: '#FFFFFF',
-          minHeight: 'min(92vh, 900px)',
           border: '1px solid rgba(0,0,0,0.06)',
           boxShadow: [
             'inset 0 1px 0 rgba(255,255,255,0.8)',
@@ -126,7 +125,7 @@ export const Hero = () => {
         />
 
         {/* ─── Header Nav Bar ─── */}
-        <div className="relative flex items-center px-6 md:px-10 lg:px-12 pt-6 pb-4" style={{ zIndex: 10 }}>
+        <div className="relative flex items-center px-6 md:px-10 lg:px-12 pt-6 pb-0" style={{ zIndex: 10 }}>
           {/* Logo */}
           <a href="/" className="flex items-center justify-center overflow-hidden h-[37px] w-[120px] md:h-[56px] md:w-[180px]" style={{ marginTop: '8px' }}>
             <img
@@ -152,19 +151,19 @@ export const Hero = () => {
           </nav>
         </div>
 
-        {/* ─── Hero Content (two-column: text left, blue card right) ─── */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center px-5 md:px-12 py-8 md:py-0 md:min-h-[calc(min(92vh,900px)-100px)]" style={{ zIndex: 10 }}>
-          {/* Left Column: Text */}
+        {/* ─── Hero Content ─── */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 md:px-12 pt-8 md:pt-0 pb-0 md:-mt-8 max-w-7xl mx-auto" style={{ zIndex: 10 }}>
+          {/* Left Column: Text Content */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col items-center text-center md:items-start md:text-left"
+            className="flex flex-col items-center md:items-start justify-center text-center md:text-left h-full"
           >
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-headline text-[28px] sm:text-4xl md:text-[80px] font-bold text-[#0A1628] leading-[1.1] mb-4 md:mb-6"
+              className="font-headline text-[26px] sm:text-4xl md:text-6xl lg:text-[72px] font-bold text-[#0A1628] leading-[1.15] mb-4"
             >
               <span className="md:hidden whitespace-nowrap">Settle Claims in{' '}
                 <span
@@ -193,7 +192,7 @@ export const Hero = () => {
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-sm sm:text-base md:text-2xl text-[#3D4A6B] leading-relaxed max-w-xl mb-6 md:mb-10"
+              className="text-xs sm:text-base md:text-lg lg:text-xl text-[#3D4A6B] leading-relaxed max-w-xl mb-6 md:mb-8"
             >
               Built For Tier 1 African Insurers, Designed For NIIRA Compliance &amp; Regulations.
             </motion.p>
@@ -201,12 +200,12 @@ export const Hero = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col md:flex-row items-center gap-2 md:gap-4 justify-center md:justify-start w-full md:w-auto"
+              className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 w-full sm:w-auto"
             >
-              <Button variant="primary" size="lg" className="text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3">
+              <Button variant="primary" className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20">
                 Request Early Access
               </Button>
-              <Button variant="ghost" size="lg" className="text-sm md:text-base">
+              <Button variant="ghost" className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20">
                 How it works
               </Button>
             </motion.div>
@@ -214,152 +213,77 @@ export const Hero = () => {
             {/* Trust bar */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mt-5 md:mt-8 text-xs md:text-sm text-[#0A1628]/30"
+              className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mt-8 text-xs md:text-sm text-[#0A1628]/50"
             >
               <span>NIIRA 2025 Ready</span>
               <span className="w-1 h-1 rounded-full bg-[#0A1628]/20" />
-              <span>60s Average Settlement</span>
+              <span>Faster Settlements</span>
               <span className="w-1 h-1 rounded-full bg-[#0A1628]/20" />
               <span>Enterprise Grade</span>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: iPhone 17 Pro — Claim Approved */}
+          {/* Right Column: iPhone Mockup */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0, 0.2, 1] }}
-            className="flex w-full items-center justify-center md:items-start md:ml-4"
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="flex justify-center lg:justify-end items-end relative w-full h-full lg:mt-0"
           >
-            <div className="hidden md:block" style={{ perspective: '1200px' }}>
-            <div style={{ transform: 'scale(2.5) rotateY(-8deg) translateX(-12px)', transformOrigin: 'top left', marginTop: '120px', filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))' }}>
-            <Iphone17Pro width={380} height={760} frameColor="#80828A" className="text-white">
-              <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 24px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '72px' }}>
-                  {/* Green Checkmark - Simplified Look */}
-                  <div
-                    style={{
-                      width: '64px',
-                      height: '64px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                      boxShadow: '0 12px 24px rgba(16, 185, 129, 0.35)',
-                      marginBottom: '4px'
-                    }}
-                  >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ width: '28px', height: '28px' }}>
-                      <path d="M20 6L9 17l-5-5" />
+            {/* Subtle glow / shadow behind the iPhone for depth */}
+            <div className="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full scale-75" />
+            
+            <div 
+              className="relative z-10 w-[300px] sm:w-[380px] md:w-[440px] lg:w-[500px]"
+              style={{
+                marginTop: '15%', // Pushes the iPhone DOWN to hide its bottom
+                marginBottom: '-50%', // Pulls the bottom edge way out of the bottom bounds of the card to hide it
+              }}
+            >
+              <Iphone17Pro className="w-full h-auto drop-shadow-2xl -translate-y-4">
+                {/* Claim Approved Screen UI */}
+                <div className="flex flex-col items-center pt-14 px-4 w-full h-full pb-6">
+                  {/* Green Checkmark Icon with Glow */}
+                  <div className="relative flex items-center justify-center w-[50px] h-[50px] rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4),0_0_30px_rgba(34,197,94,0.2)] mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-6 h-6 text-white"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
 
-                  <h3 className="font-headline" style={{ fontSize: '24px', fontWeight: 800, color: '#0A1628', marginBottom: '16px', letterSpacing: '0.02em', textAlign: 'center', whiteSpace: 'nowrap' }}>
+                  {/* Heading Text */}
+                  <h3 className="text-[18px] font-bold text-slate-900 tracking-tight mb-1">
                     Claim Approved
                   </h3>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    Settlement in progress
+                  </p>
 
-                  {/* Action Buttons */}
-                  <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', width: '100%', marginTop: '4px' }}>
-                    <button style={{
-                      flex: 1,
-                      height: '32px',
-                      background: '#F1F3F9',
-                      color: '#4B5563',
-                      fontSize: '9px',
-                      fontWeight: 700,
-                      borderRadius: '8px',
-                      border: 'none',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '4px',
-                      transition: 'all 0.2s',
-                    }}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px' }}>
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                        <polyline points="16 6 12 2 8 6"/>
-                        <line x1="12" y1="2" x2="12" y2="15"/>
-                      </svg>
-                      <span>Share</span>
-                    </button>
-                    
-                    <button style={{
-                      flex: 1,
-                      height: '32px',
-                      background: '#F1F3F9',
-                      color: '#4B5563',
-                      fontSize: '9px',
-                      fontWeight: 700,
-                      borderRadius: '8px',
-                      border: 'none',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '4px',
-                      transition: 'all 0.2s',
-                    }}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px' }}>
-                        <line x1="8" y1="6" x2="21" y2="6"/>
-                        <line x1="8" y1="12" x2="21" y2="12"/>
-                        <line x1="8" y1="18" x2="21" y2="18"/>
-                        <line x1="3" y1="6" x2="3.01" y2="6"/>
-                        <line x1="3" y1="12" x2="3.01" y2="12"/>
-                        <line x1="3" y1="18" x2="3.01" y2="18"/>
-                      </svg>
-                      <span>Details</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Iphone17Pro>
-            </div>
-            </div>
-            {/* Mobile iPhone (scaled appropriately, bottom cropped, strictly centered via absolute positioning) */}
-            <div className="md:hidden w-full relative" style={{ height: '360px', overflow: 'hidden' }}>
-              <div className="absolute top-0 left-1/2" style={{ transform: 'translateX(-32%) scale(1.2)', transformOrigin: 'top center', filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2))' }}>
-              <Iphone17Pro width={280} height={560} frameColor="#80828A" className="text-white">
-                <div style={{ width: '100%', height: '100%', background: 'white', padding: '0 20px', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginTop: '56px' }}>
-                    {/* Green Checkmark */}
-                    <div
-                      style={{
-                        width: '48px',
-                        height: '48px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                        boxShadow: '0 8px 16px rgba(16, 185, 129, 0.35)',
-                        marginBottom: '4px'
-                      }}
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ width: '22px', height: '22px' }}>
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
+                  {/* Claim Details Card */}
+                  <div className="w-full bg-[#f8f9fa] rounded-[10px] p-3 mt-6 space-y-2.5 shadow-sm border border-slate-100">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-medium text-[10px]">Claim ID:</span>
+                      <span className="text-slate-900 font-semibold text-[10px]">CLM-89742</span>
                     </div>
-                    <h3 className="font-headline" style={{ fontSize: '18px', fontWeight: 800, color: '#0A1628', marginBottom: '12px', letterSpacing: '0.02em', textAlign: 'center', whiteSpace: 'nowrap' }}>
-                      Claim Approved
-                    </h3>
-                    <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', width: '100%', marginTop: '4px' }}>
-                      <button style={{ flex: 1, height: '28px', background: '#F1F3F9', color: '#4B5563', fontSize: '8px', fontWeight: 700, borderRadius: '8px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '10px', height: '10px' }}><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                        <span>Share</span>
-                      </button>
-                      <button style={{ flex: 1, height: '28px', background: '#F1F3F9', color: '#4B5563', fontSize: '8px', fontWeight: 700, borderRadius: '8px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '10px', height: '10px' }}><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                        <span>Details</span>
-                      </button>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-medium text-[10px]">Amount:</span>
+                      <span className="text-slate-900 font-semibold text-[10px]">₦450,000</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-medium text-[10px]">Time:</span>
+                      <span className="text-red-500 font-semibold text-[10px]">58 seconds</span>
                     </div>
                   </div>
                 </div>
               </Iphone17Pro>
-              </div>
             </div>
           </motion.div>
         </div>

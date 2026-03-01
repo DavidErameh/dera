@@ -4,7 +4,6 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'motion/react';
 import { useInView } from 'react-intersection-observer';
-import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 
 const MapTilerMap = dynamic(() => import('@/components/ui/MapTilerMap'), { ssr: false });
 
@@ -34,11 +33,6 @@ const workflowSteps = [
     number: '05',
     title: 'Partner Dispatch',
     body: 'The three closest authorized garages receive a job request via the Partner API. The first to accept gets the assignment. Your customer knows their garage within seconds.',
-  },
-  {
-    number: '06',
-    title: 'Logistics Trigger',
-    body: 'If the vehicle cannot be driven, Dera fires a webhook to a towing partner automatically. If it can, the customer receives a Google Maps pin and a drive-in time window.',
   },
 ];
 
@@ -725,83 +719,6 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
     );
   };
 
-  // Step 06 Special Visual: Logistics Trigger (Lekki Phase 1 Map)
-  const renderStep06Visual = () => {
-    return (
-      <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0, 0, 0.2, 1] }}
-          className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden"
-          style={{
-            border: '1px solid rgba(0, 0, 0, 0.08)',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
-          }}
-        >
-          {/* MapTiler Map — zoomed into Lekki Phase 1 */}
-          <div className="absolute inset-0">
-            <MapTilerMap
-              center={[3.4737, 6.4412]}
-              zoom={14.5}
-              markers={[
-                { lngLat: [3.4695, 6.4445], color: '#1A3FD4', label: 'Pickup' },
-                { lngLat: [3.4790, 6.4380], color: '#10B981', label: 'Garage' },
-              ]}
-              route={{
-                coordinates: [
-                  [3.4695, 6.4445],
-                  [3.4710, 6.4438],
-                  [3.4730, 6.4425],
-                  [3.4750, 6.4410],
-                  [3.4770, 6.4395],
-                  [3.4790, 6.4380],
-                ],
-                color: '#1A3FD4',
-                width: 6,
-              }}
-              className="rounded-2xl"
-            />
-          </div>
-
-          {/* Floating Notification — top */}
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ delay: 1, duration: 0.6, type: "spring" }}
-            className="absolute top-4 left-4 right-4 z-10"
-          >
-            <div
-              className="px-4 py-3 rounded-2xl bg-white flex items-center justify-between"
-              style={{
-                border: '1px solid rgba(0, 0, 0, 0.06)',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              <div className="flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #4F8EF7, #1A3FD4)' }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                    <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z" />
-                    <circle cx="5.5" cy="18.5" r="2.5" />
-                    <circle cx="18.5" cy="18.5" r="2.5" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[12px] font-bold text-[#0A1628] leading-none mb-0.5">Tow Truck En Route</p>
-                  <p className="text-[9px] text-[#6B7799]">Admiralty Way → Oniru Estate • 1.5 km</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-[#0A1628]">8 min</span>
-                <span className="text-[8px] font-bold text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded-full tracking-wider">LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    );
-  };
-
   return (
     <motion.div
       ref={ref}
@@ -848,10 +765,6 @@ const ShieldCheckIcon = ({ className, strokeWidth }: any) => (
         ) : step.number === '05' ? (
           <div className="max-w-xl mx-auto w-full">
             {renderStep05Visual()}
-          </div>
-        ) : step.number === '06' ? (
-          <div className="max-w-xl mx-auto w-full">
-            {renderStep06Visual()}
           </div>
         ) : step.image ? (
           <div className="max-w-lg mx-auto w-full aspect-[3/4] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.08)] relative overflow-visible">
