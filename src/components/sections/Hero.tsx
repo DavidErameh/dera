@@ -175,7 +175,7 @@ export const Hero = () => {
               </span>
               <span className="hidden md:inline">Settle Claims in <br />
                 <span
-                  className="text-transparent bg-clip-text"
+                  className="text-[1.12em] text-transparent bg-clip-text"
                   style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
                 >
                   60 Minutes
