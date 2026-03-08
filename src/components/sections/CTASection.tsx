@@ -172,11 +172,12 @@ export const CTASection = () => {
                         backgroundSize: "1rem",
                       }}
                     >
-                      <option value="">Select volume...</option>
-                      <option value="Under 500">Under 500</option>
+                      <option value="">Select monthly volume...</option>
+                      <option value="Under 100">Under 100</option>
+                      <option value="100 to 500">100 to 500</option>
                       <option value="500 to 2,000">500 to 2,000</option>
-                      <option value="2,000 to 10,000">2,000 to 10,000</option>
-                      <option value="Above 10,000">Above 10,000</option>
+                      <option value="2,000 to 5,000">2,000 to 5,000</option>
+                      <option value="Above 5,000">Above 5,000</option>
                     </select>
                     {errors.volume && (
                       <p className="text-xs font-medium text-error">
@@ -186,16 +187,15 @@ export const CTASection = () => {
                   </div>
 
                   <Button
-                    type="button"
+                    type="submit"
                     variant="primary"
                     size="lg"
                     className="w-full mt-4"
                     loading={formState === "loading"}
-                    onClick={() =>
-                      window.dispatchEvent(new CustomEvent("openRequestDemo"))
-                    }
                   >
-                    {formState === "loading" ? "Submitting..." : "Try Demo Now"}
+                    {formState === "loading"
+                      ? "Submitting..."
+                      : "Request Demo Now"}
                   </Button>
                 </motion.form>
               ) : (
