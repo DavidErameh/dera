@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from 'react';
-import { motion } from 'motion/react';
-import { Button } from '@/components/ui/Button';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
-import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
+import React, { useRef, useEffect, useCallback } from "react";
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/Button";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { Iphone17Pro } from "@/components/ui/iphone-17-pro";
 
 const navLinks = [
-  { name: 'Problem', href: '#problem' },
-  { name: 'Solution', href: '#workflow' },
-  { name: 'FAQs', href: '#features' },
-  { name: 'Why now?', href: '#insurers' },
+  { name: "Problem", href: "#problem" },
+  { name: "Solution", href: "#workflow" },
+  { name: "FAQs", href: "#features" },
+  { name: "Why now?", href: "#insurers" },
 ];
 
 /* ─── Pixelated Aurora Dot Wave (black dots on white) ─── */
@@ -18,7 +18,7 @@ function useAuroraDots(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
   const animFrameRef = useRef<number>(0);
 
   const draw = useCallback((canvas: HTMLCanvasElement) => {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const dpr = Math.min(window.devicePixelRatio, 2);
@@ -87,14 +87,17 @@ export const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useAuroraDots(canvasRef);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
-    const id = href.replace('#', '');
+    const id = href.replace("#", "");
     const element = document.getElementById(id);
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 40,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -102,19 +105,21 @@ export const Hero = () => {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center p-4 md:p-6"
-      style={{ background: 'linear-gradient(to bottom, #E8EEFF 0%, #FFFFFF 100%)' }}
+      style={{
+        background: "linear-gradient(to bottom, #E8EEFF 0%, #FFFFFF 100%)",
+      }}
     >
       {/* ─── White Card ─── */}
       <div
         className="relative w-full max-w-7xl rounded-3xl overflow-hidden mx-auto"
         style={{
-          background: '#FFFFFF',
-          border: '1px solid rgba(0,0,0,0.06)',
+          background: "#FFFFFF",
+          border: "1px solid rgba(0,0,0,0.06)",
           boxShadow: [
-            'inset 0 1px 0 rgba(255,255,255,0.8)',
-            '0 20px 60px rgba(0,0,0,0.08)',
-            '0 8px 24px rgba(0,0,0,0.04)',
-          ].join(', '),
+            "inset 0 1px 0 rgba(255,255,255,0.8)",
+            "0 20px 60px rgba(0,0,0,0.08)",
+            "0 8px 24px rgba(0,0,0,0.04)",
+          ].join(", "),
         }}
       >
         {/* ─── Aurora Dot Canvas (black dots) ─── */}
@@ -125,14 +130,21 @@ export const Hero = () => {
         />
 
         {/* ─── Header Nav Bar ─── */}
-        <div className="relative flex items-center px-6 md:px-10 lg:px-12 pt-6 pb-0" style={{ zIndex: 10 }}>
+        <div
+          className="relative flex items-center px-6 md:px-10 lg:px-12 pt-8 pb-0"
+          style={{ zIndex: 10 }}
+        >
           {/* Logo */}
-          <a href="/" className="flex items-center justify-center overflow-hidden h-[37px] w-[120px] md:h-[56px] md:w-[180px]" style={{ marginTop: '8px' }}>
+          <a
+            href="/"
+            className="flex items-center justify-center overflow-hidden h-[37px] w-[120px] md:h-[56px] md:w-[180px]"
+            style={{ marginTop: "8px" }}
+          >
             <img
               src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
               alt="Dera"
               className="min-w-[120px] min-h-[120px] md:min-w-[180px] md:min-h-[180px] object-cover"
-              style={{ objectPosition: 'center 45%' }}
+              style={{ objectPosition: "center 45%" }}
             />
           </a>
 
@@ -152,7 +164,10 @@ export const Hero = () => {
         </div>
 
         {/* ─── Hero Content ─── */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 md:px-12 pt-8 md:pt-0 pb-0 md:-mt-8 max-w-7xl mx-auto" style={{ zIndex: 10 }}>
+        <div
+          className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 md:px-12 pt-8 md:pt-0 pb-0 md:-mt-8 max-w-7xl mx-auto"
+          style={{ zIndex: 10 }}
+        >
           {/* Left Column: Text Content */}
           <motion.div
             variants={staggerContainer}
@@ -163,26 +178,34 @@ export const Hero = () => {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-headline text-[26px] sm:text-4xl md:text-6xl lg:text-[72px] font-bold text-[#0A1628] leading-[1.15] mb-4"
+              className="font-headline text-[26px] sm:text-4xl md:text-6xl lg:text-[72px] font-bold text-[#0A1628] leading-[1.05] mb-4"
             >
-              <span className="md:hidden whitespace-nowrap">Settle Claims in{' '}
+              <span className="md:hidden whitespace-nowrap">
+                Settle Claims in{" "}
                 <span
                   className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)",
+                  }}
                 >
                   60 Minutes
                 </span>
               </span>
-              <span className="hidden md:inline">Settle Claims in <br />
+              <span className="hidden md:inline">
+                Settle Claims in <br />
                 <span
                   className="text-[1.12em] text-transparent bg-clip-text"
-                  style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)",
+                  }}
                 >
                   60 Minutes
                 </span>
               </span>
               <br />
-              not{' '}
+              not{" "}
               <span className="relative inline-block text-[#0A1628]">
                 6 weeks
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[3px] md:h-[4px] bg-[#0A1628]/70" />
@@ -194,7 +217,8 @@ export const Hero = () => {
               variants={fadeInUp}
               className="text-xs sm:text-base md:text-lg lg:text-xl text-[#3D4A6B] leading-relaxed max-w-xl mb-6 md:mb-8"
             >
-              Built For Tier 1 African Insurers, Designed For NIIRA Compliance &amp; Regulations.
+              Built For Tier 1 African Insurers, Designed For NIIRA Compliance
+              &amp; Regulations.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -202,11 +226,23 @@ export const Hero = () => {
               variants={fadeInUp}
               className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 w-full sm:w-auto"
             >
-              <Button variant="primary" className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20">
-                Request Early Access
+              <Button
+                variant="primary"
+                className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20"
+                onClick={() =>
+                  window.dispatchEvent(new CustomEvent("openRequestDemo"))
+                }
+              >
+                Request Demo
               </Button>
-              <Button variant="ghost" className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20">
-                How it works
+              <Button
+                variant="ghost"
+                className="!rounded-lg w-auto h-auto text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 md:py-3 cursor-pointer relative z-20"
+                onClick={() =>
+                  window.dispatchEvent(new CustomEvent("openDemo"))
+                }
+              >
+                See How It Works
               </Button>
             </motion.div>
 
@@ -232,12 +268,12 @@ export const Hero = () => {
           >
             {/* Subtle glow / shadow behind the iPhone for depth */}
             <div className="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full scale-75" />
-            
-            <div 
-              className="relative z-10 w-[300px] sm:w-[380px] md:w-[440px] lg:w-[500px]"
+
+            <div
+              className="relative z-10 w-[260px] sm:w-[320px] md:w-[360px] lg:w-[420px]"
               style={{
-                marginTop: '15%', // Pushes the iPhone DOWN to hide its bottom
-                marginBottom: '-50%', // Pulls the bottom edge way out of the bottom bounds of the card to hide it
+                marginTop: "10%", // Pushes the iPhone DOWN to hide its bottom
+                marginBottom: "-40%", // Pulls the bottom edge way out of the bottom bounds of the card to hide it
               }}
             >
               <Iphone17Pro className="w-full h-auto drop-shadow-2xl -translate-y-4">
@@ -270,18 +306,31 @@ export const Hero = () => {
                   {/* Claim Details Card */}
                   <div className="w-full bg-[#f8f9fa] rounded-[10px] p-3 mt-4 space-y-2.5 shadow-sm border border-slate-100">
                     <div className="flex justify-between items-center">
-                      <span className="text-slate-500 font-medium text-[10px]">Claim ID:</span>
-                      <span className="text-slate-900 font-semibold text-[10px]">CLM-89742</span>
+                      <span className="text-slate-500 font-medium text-[10px]">
+                        Claim ID:
+                      </span>
+                      <span className="text-slate-900 font-semibold text-[10px]">
+                        CLM-89742
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-slate-500 font-medium text-[10px]">Amount:</span>
-                      <span className="text-slate-900 font-semibold text-[10px]">₦450,000</span>
+                      <span className="text-slate-500 font-medium text-[10px]">
+                        Amount:
+                      </span>
+                      <span className="text-slate-900 font-semibold text-[10px]">
+                        ₦450,000
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-slate-500 font-medium text-[10px]">Time:</span>
-                      <span 
+                      <span className="text-slate-500 font-medium text-[10px]">
+                        Time:
+                      </span>
+                      <span
                         className="font-semibold text-[10px] text-transparent bg-clip-text"
-                        style={{ backgroundImage: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)' }}
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)",
+                        }}
                       >
                         58 seconds
                       </span>

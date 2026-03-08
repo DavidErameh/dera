@@ -122,7 +122,7 @@
 body {
   font-family: var(--font-body);
   color: var(--color-text-primary);
-  background: #FFFFFF;
+  background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -130,10 +130,19 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 h1,
@@ -239,5 +248,34 @@ h6,
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  @keyframes liquidShift {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateX(0) translateY(0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(10px) translateY(-5px);
+    }
+  }
+
+  @keyframes liquidGlassShift {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes glassShimmer {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
   }
 }
