@@ -8,12 +8,13 @@ const centerX = 200;
 const centerY = 180;
 
 const leftNodes = [
-  { id: 1, label: 'Insurer', y: 60 },
-  { id: 2, label: 'Garage', y: 140 },
-  { id: 3, label: 'Market', y: 220 },
+  { id: 1, label: 'Logistics', y: 90 },
+  { id: 2, label: 'Garages', y: 170 },
+  { id: 3, label: 'Market', y: 250 },
 ];
 
 const rightX = 340;
+const topNodeY = 40;
 
 export const NetworkSection = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -125,6 +126,73 @@ export const NetworkSection = () => {
               </motion.g>
             ))}
 
+            {/* Top node - Insurers */}
+            <motion.g
+              initial={{ opacity: 0, y: -20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.35, duration: 0.4 }}
+            >
+              {/* Card shadow */}
+              <rect
+                x={centerX - 40}
+                y={topNodeY - 22}
+                width={80}
+                height={44}
+                rx={10}
+                fill="rgba(0, 0, 0, 0.1)"
+                style={{ filter: 'blur(4px)' }}
+              />
+              {/* Card body */}
+              <rect
+                x={centerX - 40}
+                y={topNodeY - 22}
+                width={80}
+                height={44}
+                rx={10}
+                fill="white"
+                stroke="rgba(79, 142, 247, 0.2)"
+                strokeWidth="1"
+              />
+              {/* Card label */}
+              <text
+                x={centerX}
+                y={topNodeY + 5}
+                textAnchor="middle"
+                fill="#3D4A6B"
+                fontSize="12"
+                fontWeight="600"
+              >
+                Insurers
+              </text>
+            </motion.g>
+
+            {/* Connection line from top Insurers node to center - Noodle style */}
+            <path
+              d={`M ${centerX} ${topNodeY + 22} C ${centerX} ${topNodeY + 70}, ${centerX} ${
+                centerY - 80
+              }, ${centerX} ${centerY - 48}`}
+              stroke="rgba(79, 142, 247, 0.3)"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <motion.circle
+              r="4"
+              fill="#4F8EF7"
+              initial={{ offsetDistance: '0%' }}
+              animate={{ offsetDistance: '100%' }}
+              style={{
+                offsetPath: `path("M ${centerX} ${topNodeY + 22} C ${centerX} ${
+                  topNodeY + 70
+                }, ${centerX} ${centerY - 80}, ${centerX} ${centerY - 48}")`,
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+
             {/* Center Dera - Square icon */}
             <motion.g
               initial={{ opacity: 0, scale: 0 }}
@@ -185,7 +253,7 @@ export const NetworkSection = () => {
               </defs>
             </motion.g>
 
-            {/* Right side - Mobile phone */}
+            {/* Right side - Consumer app card / mobile */}
             <motion.g
               initial={{ opacity: 0, x: 20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -242,6 +310,18 @@ export const NetworkSection = () => {
                 preserveAspectRatio="xMidYMid meet"
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
+
+              {/* Consumer app label */}
+              <text
+                x={rightX}
+                y={centerY + 62}
+                textAnchor="middle"
+                fill="#3D4A6B"
+                fontSize="12"
+                fontWeight="600"
+              >
+                Consumer App
+              </text>
 
               <defs>
                 <linearGradient id="phoneScreen" x1="0%" y1="0%" x2="100%" y2="100%">
