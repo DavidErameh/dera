@@ -57,8 +57,8 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
             const content = rest.join(' — ');
             return (
               <div key={i} className="bg-[#F8F9FC] rounded-xl p-4 border border-[#E8EEFF]">
-                <span className="font-headline font-bold text-lg text-[#4F8EF7]">{label}</span>
-                <p className="text-sm md:text-base text-[#3D4A6B] mt-1 leading-relaxed">{content}</p>
+                <span className="font-headline font-bold text-xl text-[#4F8EF7]">{label}</span>
+                <p className="text-base md:text-lg text-[#3D4A6B] mt-1 leading-relaxed">{content}</p>
               </div>
             );
           })}
@@ -82,7 +82,7 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
         );
       }
       return (
-        <p key={i} className="text-[#3D4A6B] text-base md:text-lg leading-relaxed">
+        <p key={i} className="text-[#3D4A6B] text-lg md:text-xl leading-relaxed">
           {part}
         </p>
       );
@@ -98,22 +98,24 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left group hover:bg-[#F8F9FC] -mx-4 px-4 rounded-xl transition-colors"
+        className="w-full flex items-center justify-between py-5 text-left group"
+        aria-expanded={isOpen}
       >
-        <span className="font-headline text-lg md:text-xl font-medium text-[#2A313C] pr-4 leading-snug">
+        <span className="font-headline text-xl sm:text-2xl md:text-3xl font-medium text-[#2A313C] pr-6 leading-snug">
           {faq.question}
         </span>
-        <div className={`shrink-0 w-7 h-7 flex items-center justify-center rounded-full transition-all duration-300 ${isOpen ? 'bg-[#4F8EF7] rotate-90' : 'bg-[#E8EEFF]'}`}>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            className={isOpen ? 'text-white' : 'text-[#0A1628]'}
-          >
-            <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </div>
+        <motion.svg
+          width="22"
+          height="22"
+          viewBox="0 0 14 14"
+          fill="none"
+          className="shrink-0 text-[#0A1628]"
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          style={{ originX: '50%', originY: '50%' }}
+        >
+          <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </motion.svg>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -124,7 +126,7 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: {
             transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
             className="overflow-hidden pb-6"
           >
-            <div className="font-headline text-base md:text-lg text-[#3D4A6B] leading-7 pl-0">
+            <div className="text-[#3D4A6B] leading-7 pl-0">
               {formatAnswer(faq.answer)}
             </div>
           </motion.div>
@@ -156,8 +158,8 @@ export const USPSection = () => {
           </p>
         </motion.div>
 
-        {/* FAQ List */}
-        <div className="max-w-4xl mt-12 bg-white rounded-2xl border border-[#E8EEFF] p-2 md:p-4">
+      {/* FAQ List */}
+      <div className="max-w-4xl mt-12 bg-white rounded-2xl">
           {faqs.map((faq, i) => (
             <FAQItem
               key={i}
