@@ -56,15 +56,28 @@ export const Footer = () => {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-6 block">Contact</span>
             <div className="space-y-4">
               <a 
-                href="https://x.com/cyber_rekk" 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=mcdaveltd@gmail.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white/40">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.925H5.06l12.023 13.845z" />
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white/60">
+                  <path
+                    d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M4 7l8 6 8-6"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
-                Mololuwa
+                <span>mcdaveltd@gmail.com</span>
               </a>
             </div>
           </div>
