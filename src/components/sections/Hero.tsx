@@ -48,7 +48,7 @@ export const Hero = () => {
             {/* Headline - Centered */}
             <motion.h1
               variants={fadeInUp}
-              className="text-center text-[24px] sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4 capitalize"
+              className="text-center text-[28px] sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4 capitalize"
               style={{ fontFamily: "var(--font-garamond)", textShadow: '0 2px 20px rgba(0,0,0,0.15)' }}
             >
               The Claims Infrastructure Nigerian Insurance Was Built Without
