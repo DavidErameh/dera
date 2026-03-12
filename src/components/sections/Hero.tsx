@@ -48,7 +48,7 @@ export const Hero = () => {
             {/* Headline - Centered */}
             <motion.h1
               variants={fadeInUp}
-              className="text-center text-[36px] sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4 capitalize"
+              className="text-center text-[24px] sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4 capitalize"
               style={{ fontFamily: "var(--font-garamond)", textShadow: '0 2px 20px rgba(0,0,0,0.15)' }}
             >
               The Claims Infrastructure Nigerian Insurance Was Built Without
@@ -90,7 +90,7 @@ export const Hero = () => {
             {/* Trust bar */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 text-xs md:text-sm text-white"
+              className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm text-white"
             >
               <span>NIIRA 2025 Ready</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#34d399] shadow-[0_0_8px_rgba(52,211,153,0.6),0_0_16px_rgba(52,211,153,0.3)] animate-pulse" />
