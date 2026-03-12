@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
   { name: "How It Works", href: "#workflow" },
@@ -12,21 +13,6 @@ const navLinks = [
   { name: "For Insurers", href: "#insurers" },
   { name: "For Investors", href: "#investors" },
 ];
-
-const Logo = () => (
-  <div className="flex items-center gap-2 group cursor-pointer">
-    <div className="relative w-8 h-8 flex items-center justify-center">
-      <img
-        src="/image.svg"
-        alt="Dera Logo"
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <span className="font-display font-bold text-xl text-blue-900 tracking-tight">
-      Dera
-    </span>
-  </div>
-);
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -107,7 +93,7 @@ export const Navbar = () => {
         />
 
         <div className="max-w-[1440px] mx-auto h-full flex items-center px-6 md:px-20 gap-12">
-          <Logo />
+          <Logo variant="dark" />
 
           {/* Desktop Nav - Left Aligned */}
           <div className="hidden md:flex items-center gap-8">
@@ -188,7 +174,7 @@ export const Navbar = () => {
                 className="absolute top-0 right-0 w-4/5 h-full bg-white shadow-xl flex flex-col p-8"
               >
                 <div className="flex justify-between items-center mb-12">
-                  <Logo />
+                  <Logo variant="dark" />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-blue-900"

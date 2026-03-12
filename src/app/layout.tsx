@@ -10,6 +10,12 @@ const coolvetica = localFont({
   display: "swap",
 });
 
+const garamond = localFont({
+  src: "../../public/fonts/Garamond Premier Pro Light Display.otf",
+  variable: "--font-garamond",
+  display: "swap",
+});
+
 const syne = Syne({
   subsets: ["latin"],
   weight: ["700", "800"],
@@ -41,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${coolvetica.variable} scroll-smooth`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${coolvetica.variable} ${garamond.variable} scroll-smooth`}>
       <body className="antialiased font-body">
 
         {children}
