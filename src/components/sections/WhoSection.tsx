@@ -151,7 +151,7 @@ export const WhoSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            Built for every party<br />
+            <span className="text-3xl sm:text-4xl md:text-6xl">Built for every party</span><br />
             <span className="text-[#4F8EF7]">in the claims chain.</span>
           </h2>
           <p className="text-lg md:text-xl text-[#3D4A6B]">
