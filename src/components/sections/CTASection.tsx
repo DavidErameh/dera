@@ -83,9 +83,6 @@ export const CTASection = () => {
         <div className="max-w-[580px] mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <SectionLabel className="justify-center mb-6">
-              EARLY ACCESS
-            </SectionLabel>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-blue-900 tracking-tight leading-tight mb-8">
               Experience the Dera difference <br />
               in minutes, not weeks
