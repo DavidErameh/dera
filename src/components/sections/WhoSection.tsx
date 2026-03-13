@@ -150,11 +150,11 @@ export const WhoSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             Built for every party<br />
             <span className="text-[#4F8EF7]">in the claims chain.</span>
           </h2>
-          <p className="text-xl md:text-2xl text-[#3D4A6B]">
+          <p className="text-lg md:text-xl text-[#3D4A6B]">
             One integration. Three experiences transformed.
           </p>
         </motion.div>

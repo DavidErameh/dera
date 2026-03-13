@@ -19,7 +19,7 @@ const workflowSteps = [
   {
     number: "02",
     title: "Computer Vision Analysis",
-    body: "YOLOv11 identifies the vehicle make and model, labels each damaged component individually — Front Bumper, Right Headlight, Hood — and assigns a severity classification.",
+    body: "YOLOv11 identifies the vehicle make and model, labels each damaged component individually, Front Bumper, Right Headlight, Hood, and assigns a severity classification.",
     image: "/DAMAGED AREA_20260304_004634_0000.png",
   },
   {
@@ -815,10 +815,10 @@ const StepSubSection = ({
       {/* Content side: number + title + description */}
       <div className={isEven ? "md:order-1" : "md:order-2"}>
         <div className="flex items-baseline gap-4 mb-4">
-          <span className="font-headline text-6xl md:text-8xl font-bold text-[#E8EEFF] select-none leading-none">
+          <span className="font-headline text-6xl md:text-8xl font-bold text-gray-500/50 drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)] select-none leading-none">
             {step.number}
           </span>
-          <div className="h-[2px] flex-1 bg-gradient-to-r from-[#1230AA]/20 to-transparent" />
+          <div className="h-[2px] flex-1 bg-gradient-to-r from-[#0A1628]/30 via-[#0A1628]/15 to-transparent backdrop-blur-sm" />
         </div>
         <h3 className="font-headline text-3xl md:text-4xl font-bold text-[#0A1628] mb-5">
           {step.title}
@@ -987,7 +987,7 @@ export const WorkflowSection = () => {
           <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             The Workflow
           </h2>
-          <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
+          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-[#3D4A6B]">
             Six Steps. Zero Phone Calls.
           </p>
         </motion.div>
