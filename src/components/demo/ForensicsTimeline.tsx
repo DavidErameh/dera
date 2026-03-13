@@ -156,7 +156,7 @@ export const ForensicsTimeline: React.FC<ForensicsTimelineProps> = ({
           className="absolute left-[15px] top-[18px] bottom-[18px] w-1.5 rounded-full origin-top z-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(79, 142, 247, 0.95) 0%, rgba(26, 63, 212, 0.95) 100%)",
+              "linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(96, 165, 250, 0.95) 100%)",
             backdropFilter: "blur(12px)",
             boxShadow: "inset 0 0 8px rgba(255, 255, 255, 0.4)",
             border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -199,7 +199,7 @@ export const ForensicsTimeline: React.FC<ForensicsTimelineProps> = ({
                     className="absolute w-9 h-9 rounded-full flex items-center justify-center"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(79, 142, 247, 0.95) 0%, rgba(26, 63, 212, 0.95) 100%)",
+                        "linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(96, 165, 250, 0.95) 100%)",
                       backdropFilter: "blur(12px)",
                       boxShadow:
                         "0 8px 16px rgba(26, 63, 212, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.4)",

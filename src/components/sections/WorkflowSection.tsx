@@ -217,12 +217,12 @@ const StepSubSection = ({
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-[70px] h-[22px] overflow-hidden flex items-center justify-center -ml-1">
+              <div className="w-8 h-8 overflow-hidden flex items-center justify-center">
                 <img
-                  src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
+                  src="/logos/6458c1a3-4fd2-4902-87ef-8ebf7420c902_removalai_preview.png"
                   alt="Dera"
-                  className="min-w-[96px] min-h-[96px] object-cover"
-                  style={{ objectPosition: "center 46%" }}
+                  className="w-full h-full object-contain"
+                  style={{ filter: "brightness(0)" }}
                 />
               </div>
               <p className="text-[17px] font-semibold text-[#0A1628] leading-none mt-0.5">
@@ -673,12 +673,14 @@ const StepSubSection = ({
           >
             <div className="flex items-center gap-3 mb-3">
               <div
-                className="w-8 h-8 rounded-xl flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(135deg, #4F8EF7, #1A3FD4)",
-                }}
+                className="w-8 h-8 rounded-xl flex items-center justify-center overflow-hidden"
               >
-                <span className="text-[12px] text-white font-bold">D</span>
+                <img
+                  src="/logos/6458c1a3-4fd2-4902-87ef-8ebf7420c902_removalai_preview.png"
+                  alt="Dera"
+                  className="w-full h-full object-contain"
+                  style={{ filter: "brightness(0)" }}
+                />
               </div>
               <div>
                 <span className="text-[10px] font-bold text-[#0A1628]/40 tracking-wider uppercase">
@@ -985,7 +987,7 @@ export const WorkflowSection = () => {
           className="mb-8"
         >
           <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            The Workflow
+            <span style={{ fontFamily: "var(--font-garamond)", fontSize: "1.2em" }} className="text-[#4F8EF7]">The</span><span className="mr-[-12px]"> </span>Workflow
           </h2>
           <p className="text-xl sm:text-2xl md:text-3xl font-medium text-[#3D4A6B]">
             Six Steps. Zero Phone Calls.
