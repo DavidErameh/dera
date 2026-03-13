@@ -356,21 +356,25 @@ export const NetworkSection = () => {
           </svg>
         </motion.div>
 
-        {/* Stat Chips */}
+        {/* Stat Chips - Glassmorphic */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 md:gap-4 mt-12"
+          className="flex flex-wrap justify-center gap-2 md:gap-4 mt-12"
         >
-          {['API-First Integration', 'Real-Time Webhooks', 'Zero Phone Calls'].map((chip, i) => (
-            <span
-              key={i}
-              className="px-4 py-2 rounded-full bg-[#E8EEFF] text-[#3D4A6B] text-sm font-medium"
-            >
-              {chip}
-            </span>
-          ))}
+          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
+            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">API-First Integration</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
+            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">Real-Time Webhooks</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
+            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">Zero Phone Calls</span>
+          </div>
         </motion.div>
       </div>
     </section>
