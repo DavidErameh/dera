@@ -363,17 +363,17 @@ export const NetworkSection = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-wrap justify-center gap-2 md:gap-4 mt-12"
         >
-          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+          <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">API-First Integration</span>
+            <span className="text-[10px] md:text-xs text-[#3D4A6B] font-medium">API-First Integration</span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+          <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">Real-Time Webhooks</span>
+            <span className="text-[10px] md:text-xs text-[#3D4A6B] font-medium">Real-Time Webhooks</span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
+          <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-            <span className="text-xs md:text-sm text-[#3D4A6B] font-medium">Zero Phone Calls</span>
+            <span className="text-[10px] md:text-xs text-[#3D4A6B] font-medium">Zero Phone Calls</span>
           </div>
         </motion.div>
       </div>
