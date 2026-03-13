@@ -131,7 +131,7 @@ export const ProblemSection = () => {
             A System That is Failing <span style={{ fontFamily: "var(--font-garamond)" }}>Everyone</span>
           </h2>
           <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
-            Not one broken thing. Six.
+            Not one Problem, <span style={{ fontFamily: "var(--font-garamond)", fontSize: '1.4em', fontWeight: 700 }}>Six.</span>
           </p>
         </motion.div>
 

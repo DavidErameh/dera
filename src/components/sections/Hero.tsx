@@ -24,7 +24,7 @@ export const Hero = () => {
       </div>
 
       {/* ─── Background Gradient with Semi-Circle ─── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#4F8EF7] to-white z-0" />
+      <div className="absolute inset-0 md:bg-gradient-to-b from-[#4F8EF7] to-white z-0 md:h-full h-[60%] bottom-0 top-auto" />
       
       {/* Upside Down Semi-Circle with Faded Edges */}
       <div 
@@ -106,7 +106,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="flex justify-center relative pb-0"
-              style={{ marginTop: '2rem', marginBottom: '-12rem' }}
+              style={{ marginTop: '1rem', marginBottom: '-12rem' }}
             >
               {/* Subtle glow / shadow behind the iPhone for depth */}
               <div 
@@ -114,8 +114,8 @@ export const Hero = () => {
                 style={{ transform: "scale(0.6)" }}
               />
 
-              {/* Left Side Bubbles */}
-              <div className="absolute left-0 -translate-x-full pr-4 flex flex-col gap-4 justify-center h-full z-20">
+              {/* Left Side Bubbles - Hidden on Mobile */}
+              <div className="hidden md:flex absolute left-0 -translate-x-full pr-4 flex-col gap-4 justify-center h-full z-20">
                 <IMessageBubble
                   variant="blue"
                   name="Chidi · Lagos"
@@ -141,8 +141,8 @@ export const Hero = () => {
 
               <div className="relative z-10 w-[280px] sm:w-[340px] md:w-[400px] lg:w-[480px]">
 
-                {/* Right Side Bubbles */}
-                <div className="absolute right-0 translate-x-full pl-4 flex flex-col gap-4 justify-center h-full z-30">
+              {/* Right Side Bubbles - Hidden on Mobile */}
+              <div className="hidden md:flex absolute right-0 translate-x-full pl-4 flex-col gap-4 justify-center h-full z-30">
                   <IMessageBubble
                     variant="white"
                     name="Adaeze · Abuja"
