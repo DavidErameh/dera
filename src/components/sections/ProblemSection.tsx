@@ -4,6 +4,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'react-intersection-observer';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 const problemCards = [
   {
@@ -54,10 +59,11 @@ type CardProps = {
 const Card = ({ title, label, body, stat, statLabel, source, index }: CardProps) => {
   const isDarkCard = index === 5;
   const isBlueAccent = index === 1;
+  const needsVisualSpace = index !== 1; // All cards except "The Visibility Gap" need space for visuals
 
   return (
     <div
-      className="h-full rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1"
+      className={`h-full rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${needsVisualSpace ? 'md:py-16' : ''}`}
       style={{
         background: isDarkCard
           ? 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)'
@@ -127,20 +133,45 @@ export const ProblemSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-16"
         >
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            A System That is Failing <span style={{ fontFamily: "var(--font-garamond)" }}>Everyone</span>
+          <h2 className="font-headline text-center md:text-left text-4xl sm:text-5xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+            The System That is <span className="text-[#4F8EF7]">Failing</span> <span style={{ fontFamily: "var(--font-garamond)" }}>Everyone</span>
           </h2>
-          <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
+          <p className="text-center md:text-left text-lg sm:text-xl md:text-3xl font-medium text-[#3D4A6B]">
             Not one Problem, <span style={{ fontFamily: "var(--font-garamond)", fontSize: '1.4em', fontWeight: 700 }}>Six.</span>
           </p>
         </motion.div>
 
-        {/* Cards Grid - Asymmetric 2-row layout */}
+        {/* Mobile Carousel - Deck of Cards */}
+        <div className="md:hidden">
+          <Swiper
+            effect="coverflow"
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView="auto"
+            coverflowEffect={{
+              rotate: 15,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper pb-12"
+          >
+            {problemCards.map((card, index) => (
+              <SwiperSlide key={index} style={{ width: '85%', height: '500px' }}>
+                <Card {...card} index={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid - Asymmetric 2-row layout */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
           animate={inView ? 'animate' : 'initial'}
-          className="grid grid-cols-12 gap-5"
+          className="hidden md:grid grid-cols-12 gap-5"
         >
           {/* Row 1: 1 Rectangle + 2 Squares */}
           <motion.div variants={fadeInUp} className="col-span-12 md:col-span-5">
