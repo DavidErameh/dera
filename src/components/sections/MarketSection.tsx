@@ -84,7 +84,7 @@ export const MarketSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="text-center mb-12"
         >
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             The opportunity<br />
             <span className="text-[#4F8EF7]">is already here.</span>
           </h2>
