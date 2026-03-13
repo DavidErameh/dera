@@ -29,12 +29,12 @@ export const NetworkSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="text-center mb-12"
         >
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             Everything Connected.<br />
             <span className="text-[#4F8EF7]">Nothing Manual.</span>
           </h2>
           <p className="text-lg md:text-xl text-[#3D4A6B] max-w-2xl mx-auto">
-            Dera sits at the centre of your claims ecosystem — routing data, decisions, and dispatch automatically between every party in the process.
+            Dera sits at the centre of your claims ecosystem, routing data, decisions, and dispatch automatically between every party in the process.
           </p>
         </motion.div>
 
