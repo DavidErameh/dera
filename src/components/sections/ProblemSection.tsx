@@ -118,7 +118,7 @@ export const ProblemSection = () => {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
 
   return (
-    <section id="problem" className="bg-white py-16 lg:py-24 overflow-hidden">
+    <section id="problem" className="bg-gradient-to-b from-[#f8fafc] to-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12" ref={ref}>
         {/* Heading Area */}
         <motion.div

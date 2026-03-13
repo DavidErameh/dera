@@ -12,8 +12,8 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* ─── Thin Navigation Bar ─── */}
-      <div className="w-full h-16 border-b border-white/30 flex items-center px-6 md:px-12 relative z-20">
-        <Logo variant="dark" showText={false} className="h-16" />
+      <div className="w-full h-14 md:h-16 border-b border-white/30 flex items-center px-6 md:px-12 relative z-20">
+        <Logo variant="dark" showText={false} className="h-14 md:h-16" />
         
         <div className="hidden md:flex items-center gap-8 ml-12">
           <a href="#problem" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Problem</a>
@@ -24,7 +24,7 @@ export const Hero = () => {
       </div>
 
       {/* ─── Background Gradient with Semi-Circle ─── */}
-      <div className="absolute inset-0 md:bg-gradient-to-b from-[#4F8EF7] to-white z-0 md:h-full h-[60%] bottom-0 top-auto" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#4F8EF7] to-white z-0" />
       
       {/* Upside Down Semi-Circle with Faded Edges */}
       <div 
@@ -39,7 +39,7 @@ export const Hero = () => {
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* ─── Main Content (Centered) ─── */}
-        <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-6 pb-8 pt-8">
+        <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-6 pb-20 pt-8">
           <motion.div
             variants={staggerContainer}
             initial="initial"
