@@ -33,7 +33,7 @@ export const NetworkSection = () => {
             Everything Connected.<br />
             <span className="text-[#4F8EF7]">Nothing Manual.</span>
           </h2>
-          <p className="text-lg md:text-xl text-[#3D4A6B] max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-[#3D4A6B] max-w-2xl mx-auto">
             Dera sits at the centre of your claims ecosystem, routing data, decisions, and dispatch automatically between every party in the process.
           </p>
         </motion.div>
