@@ -815,10 +815,10 @@ const StepSubSection = ({
       {/* Content side: number + title + description */}
       <div className={isEven ? "md:order-1" : "md:order-2"}>
         <div className="flex items-baseline gap-4 mb-4">
-          <span className="font-headline text-6xl md:text-8xl font-bold text-gray-500/50 drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)] select-none leading-none">
+          <span className="font-headline text-6xl md:text-8xl font-bold text-blue-400/50 drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)] select-none leading-none">
             {step.number}
           </span>
-          <div className="h-[2px] flex-1 bg-gradient-to-r from-[#0A1628]/30 via-[#0A1628]/15 to-transparent backdrop-blur-sm" />
+          <div className="h-[2px] flex-1 bg-gradient-to-r from-blue-400/30 via-blue-400/15 to-transparent backdrop-blur-sm" />
         </div>
         <h3 className="font-headline text-3xl md:text-4xl font-bold text-[#0A1628] mb-5">
           {step.title}
