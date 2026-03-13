@@ -83,9 +83,8 @@ export const StatsSection = () => {
               className="w-full rounded-2xl overflow-hidden"
               style={{
                 border: '1px solid rgba(0, 0, 0, 0.06)',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                background:
-                  'linear-gradient(to bottom, #E8EEFF 0%, #E8EEFF 50%, #FFFFFF 50%, #FFFFFF 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                background: '#FFFFFF',
               }}
             >
               {/* Header */}
@@ -203,7 +202,7 @@ export const StatsSection = () => {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{
                   delay: 0.2 + i * 0.1,
-                  duration: 0.5,
+                  duration: 1.5,
                   ease: [0, 0, 0.2, 1],
                 }}
                 className={`py-8 ${
@@ -211,7 +210,7 @@ export const StatsSection = () => {
                 }`}
               >
                 <div className="flex items-baseline gap-5 mb-2">
-                  <span className="font-headline text-5xl md:text-6xl font-bold text-[#1A3FD4] leading-none whitespace-nowrap">
+                  <span className="font-headline text-5xl md:text-6xl font-bold text-[#4F8EF7] leading-none whitespace-nowrap">
                     {stat.isRange ? (
                       <span className="flex items-baseline">
                         <AnimatedNumber value={10} />
