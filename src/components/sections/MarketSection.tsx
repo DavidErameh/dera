@@ -85,7 +85,7 @@ export const MarketSection = () => {
           className="text-center mb-12"
         >
           <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            The opportunity<br />
+            <span style={{ fontFamily: "var(--font-garamond)" }}>The opportunity</span><br />
             <span className="text-[#4F8EF7]">is already here.</span>
           </h2>
           <p className="text-lg md:text-xl text-[#3D4A6B] max-w-2xl mx-auto">
