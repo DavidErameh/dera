@@ -9,10 +9,15 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 
 const DashboardMockup = () => {
-  const claims = [
+  const claims: Array<{
+    id: string;
+    days: string;
+    status: string;
+    variant: 'success' | 'warning' | 'error';
+  }> = [
     { id: 'CLM-2026-0041', days: '58 DAYS', status: 'IN PROGRESS', variant: 'success' },
     { id: 'CLM-2026-0039', days: '31 DAYS', status: 'AWAITING ADJUSTER', variant: 'warning' },
-    { id: 'CLM-2026-0037', days: '12 DAYS', status: 'URGENT', variant: 'error' }, // Error corresponds to red/orange
+    { id: 'CLM-2026-0037', days: '12 DAYS', status: 'URGENT', variant: 'error' },
     { id: 'CLM-2026-0035', days: '3 DAYS', status: 'CRITICAL', variant: 'error' },
   ];
 
@@ -40,7 +45,7 @@ const DashboardMockup = () => {
               )}>
                 {claim.days}
               </span>
-              <Badge variant={claim.variant as any} size="sm" className="w-fit">{claim.status}</Badge>
+              <Badge variant={claim.variant} size="sm" className="w-fit">{claim.status}</Badge>
             </div>
           ))}
         </div>

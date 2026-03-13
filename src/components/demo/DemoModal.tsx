@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { StepIntro } from "./StepIntro";
 import { StepUpload } from "./StepUpload";
@@ -29,7 +29,8 @@ export const DemoModal = ({
   const [isClient, setIsClient] = useState(false);
   const [dispatchAccepted, setDispatchAccepted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
   }, []);
 
@@ -44,8 +45,10 @@ export const DemoModal = ({
   useEffect(() => {
     if (!isOpen) {
       const timer = setTimeout(() => setCurrentStep(0), 400);
-      setDispatchAccepted(false);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        setDispatchAccepted(false);
+      };
     }
   }, [isOpen]);
 

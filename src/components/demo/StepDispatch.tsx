@@ -30,9 +30,11 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
 
   useEffect(() => {
     if (triggerAccept && !isAccepted) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsAccepted(true);
       setAcceptedGarage(garages[0]);
-      setTimeout(() => setShowMap(true), 1000);
+      const timer = setTimeout(() => setShowMap(true), 1000);
+      return () => clearTimeout(timer);
     }
   }, [triggerAccept, isAccepted]);
 

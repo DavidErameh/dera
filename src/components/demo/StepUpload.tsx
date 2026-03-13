@@ -33,7 +33,8 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
       return;
     }
 
-    setPhase("upload");
+    const timer = setTimeout(() => setPhase("upload"), 0);
+    return () => clearTimeout(timer);
   }, [inView, phase]);
 
   useEffect(() => {

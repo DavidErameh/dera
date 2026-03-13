@@ -127,8 +127,8 @@ export const ProblemSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-16"
         >
-          <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            A System That is Failing Everyone
+          <h2 className="font-headline text-5xl sm:text-6xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+            A System That is Failing <span style={{ fontFamily: "var(--font-garamond)" }}>Everyone</span>
           </h2>
           <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#3D4A6B]">
             Not one broken thing. Six.

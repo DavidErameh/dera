@@ -89,38 +89,8 @@ export const MarketSection = () => {
             <span className="text-[#4F8EF7]">is already here.</span>
           </h2>
           <p className="text-lg md:text-xl text-[#3D4A6B] max-w-2xl mx-auto">
-            Nigeria's insurance market isn't waiting for the right product. It's waiting for the right experience.
+            Nigeria&apos;s insurance market isn&apos;t waiting for the right product. It&apos;s waiting for the right experience.
           </p>
-        </motion.div>
-
-        {/* Prose Block - 9 Million */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="relative overflow-hidden mb-16"
-          style={{
-            background: '#0A1628',
-            borderRadius: '24px',
-            borderLeft: '4px solid #4F8EF7',
-          }}
-        >
-          <div className="px-8 py-10 md:py-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-white/60 mb-4">
-                12.2 million registered vehicles. 3.4 million genuine policies.
-              </p>
-              <p className="text-xl md:text-2xl text-white/80 mb-4">
-                That gap - 9 million uninsured drivers - isn't a marketing problem.
-              </p>
-              <p className="text-xl md:text-2xl font-semibold text-white mb-4">
-                It's a claims problem.
-              </p>
-              <p className="text-white/70">
-                People stopped trusting insurance because insurance stopped delivering on claims. Dera rebuilds that trust from the inside.
-              </p>
-            </div>
-          </div>
         </motion.div>
 
         {/* Market Funnel Cards */}
@@ -133,45 +103,6 @@ export const MarketSection = () => {
           {marketCards.map((card, i) => (
             <MarketCard key={card.label} card={card} index={i} />
           ))}
-        </motion.div>
-
-        {/* Revenue Logic */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="bg-[#E8EEFF] rounded-2xl p-8 md:p-12"
-        >
-          <h4 className="text-center text-lg font-semibold text-[#0A1628] mb-8">
-            How the numbers work
-          </h4>
-          
-          {/* Calculation */}
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8">
-            <div className="text-center">
-              <p className="font-headline text-3xl md:text-4xl font-bold text-[#0A1628]">₦80B</p>
-              <p className="text-sm text-[#3D4A6B] mt-1">Annual motor claims<br />repair pool in Nigeria</p>
-            </div>
-            
-            <span className="text-2xl text-[#4F8EF7] font-bold">×</span>
-            
-            <div className="text-center">
-              <p className="font-headline text-3xl md:text-4xl font-bold text-[#0A1628]">12.5%</p>
-              <p className="text-sm text-[#3D4A6B] mt-1">Dera efficiency<br />fee per claim</p>
-            </div>
-            
-            <span className="text-2xl text-[#4F8EF7] font-bold">=</span>
-            
-            <div className="text-center">
-              <p className="font-headline text-3xl md:text-4xl font-bold text-[#4F8EF7]">₦10B</p>
-              <p className="text-sm text-[#3D4A6B] mt-1">Target annual<br />revenue at 10% share</p>
-            </div>
-          </div>
-
-          {/* Supporting line */}
-          <p className="text-center text-[#3D4A6B] italic">
-            We save insurers 20% in fraud leakage and 30% in manual labour costs. We ask for 12.5% of the value we create.
-          </p>
         </motion.div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { Iphone17Pro } from "@/components/ui/iphone-17-pro";
 import { Logo } from "@/components/ui/Logo";
+import { IMessageBubble } from "@/components/ui/IMessageBubble";
 
 export const Hero = () => {
   return (
@@ -104,7 +105,8 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="flex justify-center items-end relative"
+              className="flex justify-center relative pb-0"
+              style={{ marginTop: '2rem', marginBottom: '-12rem' }}
             >
               {/* Subtle glow / shadow behind the iPhone for depth */}
               <div 
@@ -112,7 +114,58 @@ export const Hero = () => {
                 style={{ transform: "scale(0.6)" }}
               />
 
-              <div className="relative z-10 w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px]">
+              {/* Left Side Bubbles */}
+              <div className="absolute left-0 -translate-x-full pr-4 flex flex-col gap-4 justify-center h-full z-20">
+                <IMessageBubble
+                  variant="blue"
+                  name="Chidi · Lagos"
+                  message="E dey fast o! My claim approved in 2 days"
+                  size="large"
+                  className="ml-4"
+                />
+                <IMessageBubble
+                  variant="blue"
+                  name="Emeka · PH"
+                  message="No more stress with Dera. Paid in 48hrs"
+                  size="large"
+                  className="ml-8"
+                />
+                <IMessageBubble
+                  variant="blue"
+                  name="Segun · Enugu"
+                  message="Swift claim settlement. Recommended"
+                  size="medium"
+                  className="ml-2"
+                />
+              </div>
+
+              <div className="relative z-10 w-[280px] sm:w-[340px] md:w-[400px] lg:w-[480px]">
+
+                {/* Right Side Bubbles */}
+                <div className="absolute right-0 translate-x-full pl-4 flex flex-col gap-4 justify-center h-full z-30">
+                  <IMessageBubble
+                    variant="white"
+                    name="Adaeze · Abuja"
+                    message="Finally insurance wey actually work 👏"
+                    size="medium"
+                    className="mr-4"
+                  />
+                  <IMessageBubble
+                    variant="white"
+                    name="Funke · Ibadan"
+                    message="Dem clear my car in 3 days. Smooth"
+                    size="medium"
+                    className="mr-8"
+                  />
+                  <IMessageBubble
+                    variant="white"
+                    name="Amaka · Kano"
+                    message="Best insurance experience ever! 🎉"
+                    size="small"
+                    className="mr-2"
+                  />
+                </div>
+
                 <Iphone17Pro className="w-full h-auto drop-shadow-2xl">
                   {/* Claim Approved Screen UI */}
                   <div className="flex flex-col items-center pt-14 px-4 w-full h-full pb-6">
