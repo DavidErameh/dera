@@ -82,7 +82,7 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                       src="/logos/6458c1a3-4fd2-4902-87ef-8ebf7420c902_removalai_preview.png"
                       alt="Dera"
                       className="w-full h-full object-contain"
-                      style={{ filter: "brightness(0) invert(1)" }}
+                      style={{ filter: "brightness(0)" }}
                     />
                   </div>
                   <div>
