@@ -13,7 +13,14 @@ export const Hero = () => {
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* ─── Thin Navigation Bar ─── */}
       <div className="w-full h-14 md:h-16 border-b border-white/30 flex items-center px-6 md:px-12 relative z-20">
-        <Logo variant="dark" showText={false} className="h-14 md:h-16" />
+        <div className="h-20 md:h-24 w-auto overflow-hidden flex items-center">
+          <img
+            src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
+            alt="Dera"
+            className="h-full w-auto object-contain"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+        </div>
         
         <div className="hidden md:flex items-center gap-8 ml-12">
           <a href="#problem" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Problem</a>

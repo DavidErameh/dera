@@ -79,7 +79,7 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                     className="w-8 h-8 overflow-hidden flex items-center justify-center"
                   >
                     <img
-                      src="/logos/6458c1a3-4fd2-4902-87ef-8ebf7420c902_removalai_preview.png"
+                      src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
                       alt="Dera"
                       className="w-full h-full object-contain"
                       style={{ filter: "brightness(0)" }}
