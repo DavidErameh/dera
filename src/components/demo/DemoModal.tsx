@@ -95,17 +95,17 @@ export const DemoModal = ({
             {/* Close Button - Top Right */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-xl bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-md"
+              className="absolute top-3 right-3 z-10 p-1"
             >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#0A1628"
-                strokeWidth="2"
-                className="w-5 h-5"
+                stroke="#9CA3AF"
+                strokeWidth="3"
+                className="w-7 h-7"
               >
                 <path
-                  d="M6 18L18 6M6 6l12 12"
+                  d="M4 4l16 16M4 20L20 4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />

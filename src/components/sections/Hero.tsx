@@ -114,57 +114,7 @@ export const Hero = () => {
                 style={{ transform: "scale(0.6)" }}
               />
 
-              {/* Left Side Bubbles - Hidden on Mobile */}
-              <div className="hidden md:flex absolute left-0 -translate-x-full pr-4 flex-col gap-4 justify-center h-full z-20">
-                <IMessageBubble
-                  variant="blue"
-                  name="Chidi · Lagos"
-                  message="E dey fast o! My claim approved in 2 days"
-                  size="large"
-                  className="ml-4"
-                />
-                <IMessageBubble
-                  variant="blue"
-                  name="Emeka · PH"
-                  message="No more stress with Dera. Paid in 48hrs"
-                  size="large"
-                  className="ml-8"
-                />
-                <IMessageBubble
-                  variant="blue"
-                  name="Segun · Enugu"
-                  message="Swift claim settlement. Recommended"
-                  size="medium"
-                  className="ml-2"
-                />
-              </div>
-
               <div className="relative z-10 w-[280px] sm:w-[340px] md:w-[400px] lg:w-[480px]">
-
-              {/* Right Side Bubbles - Hidden on Mobile */}
-              <div className="hidden md:flex absolute right-0 translate-x-full pl-4 flex-col gap-4 justify-center h-full z-30">
-                  <IMessageBubble
-                    variant="white"
-                    name="Adaeze · Abuja"
-                    message="Finally insurance wey actually work 👏"
-                    size="medium"
-                    className="mr-4"
-                  />
-                  <IMessageBubble
-                    variant="white"
-                    name="Funke · Ibadan"
-                    message="Dem clear my car in 3 days. Smooth"
-                    size="medium"
-                    className="mr-8"
-                  />
-                  <IMessageBubble
-                    variant="white"
-                    name="Amaka · Kano"
-                    message="Best insurance experience ever! 🎉"
-                    size="small"
-                    className="mr-2"
-                  />
-                </div>
 
                 <Iphone17Pro className="w-full h-auto drop-shadow-2xl">
                   {/* Claim Approved Screen UI */}
