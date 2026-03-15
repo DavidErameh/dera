@@ -30,7 +30,6 @@ export const DemoModal = ({
   const [dispatchAccepted, setDispatchAccepted] = useState(false);
 
   useLayoutEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
   }, []);
 
@@ -91,56 +90,44 @@ export const DemoModal = ({
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
             className="relative w-full max-w-5xl mx-4 bg-white rounded-3xl shadow-2xl overflow-hidden"
-            style={{ height: "750px", maxHeight: "90vh" }}
+            style={{ height: "680px" }}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8EEFF]">
-              <div className="flex items-center gap-3">
-                <div>
-                  <h3 className="font-display text-xl font-bold text-[#0A1628]">
-                    Interactive Demo
-                  </h3>
-                  <p className="text-xs text-[#6B7799]">
-                    AI Claims Processing in Seconds
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={onClose}
-                className="w-10 h-10 rounded-xl bg-[#F2F4F8] flex items-center justify-center hover:bg-[#E8EEFF] transition-colors"
+            {/* Close Button - Top Right */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-xl bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-md"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#0A1628"
+                strokeWidth="2"
+                className="w-5 h-5"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#0A1628"
-                  strokeWidth="2"
-                  className="w-5 h-5"
-                >
-                  <path
-                    d="M6 18L18 6M6 6l12 12"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
 
-            {/* Progress Steps */}
-            <div className="flex items-center justify-center gap-2 px-6 py-4 bg-[#F8F9FC]">
+            {/* Minimal Progress Indicator */}
+            <div className="flex items-center justify-center gap-2 px-6 py-4 bg-[#F8F9FC] border-b border-[#E8EEFF]">
               {steps.map((step, index) => (
                 <React.Fragment key={step.id}>
                   <button
                     onClick={() => setCurrentStep(index)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
+                    className={`flex items-center gap-2 px-2 py-1.5 rounded-lg transition-all ${
                       index === currentStep
                         ? "bg-white shadow-md"
                         : index < currentStep
                           ? "bg-transparent"
-                          : "bg-transparent opacity-50"
+                          : "bg-transparent opacity-40"
                     }`}
                   >
                     <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold ${
+                      className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-semibold ${
                         index === currentStep
                           ? "text-white"
                           : index < currentStep
@@ -150,7 +137,7 @@ export const DemoModal = ({
                       style={
                         index === currentStep
                           ? {
-                              background: "black",
+                              background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
                             }
                           : {}
                       }
@@ -161,7 +148,7 @@ export const DemoModal = ({
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="3"
-                          className="w-4 h-4"
+                          className="w-3 h-3"
                         >
                           <path
                             d="M20 6L9 17l-5-5"
@@ -173,19 +160,15 @@ export const DemoModal = ({
                         index + 1
                       )}
                     </div>
-                    <span
-                      className={`text-sm font-medium hidden md:inline ${
-                        index === currentStep
-                          ? "text-[#0A1628]"
-                          : "text-[#6B7799]"
-                      }`}
-                    >
-                      {step.title}
-                    </span>
                   </button>
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-10 h-0.5 ${index < currentStep ? "bg-black" : "bg-[#DDE2F0]"}`}
+                      className={`w-6 h-0.5 ${index < currentStep ? "" : ""}`}
+                      style={{
+                        background: index < currentStep 
+                          ? 'linear-gradient(90deg, #4F8EF7 0%, #1A3FD4 100%)' 
+                          : 'linear-gradient(90deg, #DDE2F0 0%, #E8EEFF 100%)',
+                      }}
                     />
                   )}
                 </React.Fragment>
@@ -194,8 +177,8 @@ export const DemoModal = ({
 
             {/* Step Content */}
             <div
-              className="p-6 overflow-y-auto scrollbar-hide"
-              style={{ height: "540px" }}
+              className="p-6 overflow-y-auto scrollbar-hide bg-white"
+              style={{ height: "520px" }}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -215,15 +198,39 @@ export const DemoModal = ({
               </AnimatePresence>
             </div>
 
-            {/* Footer Navigation */}
+            {/* Bottom Navigation - Integrated into card */}
             {currentStep < 5 && (
-              <div className="flex items-center justify-between px-6 py-4 border-t border-[#E8EEFF] bg-[#F8F9FC]">
-                <div></div>
+              <div className="flex items-center justify-between px-6 py-4 border-t border-[#E8EEFF] bg-white rounded-b-3xl">
+                <button
+                  onClick={handlePrev}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-colors ${
+                    currentStep === 0 
+                      ? "text-[#DDE2F0] cursor-not-allowed" 
+                      : "text-[#6B7799] hover:text-[#0A1628]"
+                  }`}
+                  disabled={currentStep === 0}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      d="M19 12H5M12 19l-7-7 7-7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Back
+                </button>
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110"
+                  className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110 hover:shadow-lg"
                   style={{
-                    background: "black",
+                    background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
+                    boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
                   }}
                 >
                   {currentStep === 4 ? (dispatchAccepted ? "Finish" : "Accept & Continue") : "Continue"}

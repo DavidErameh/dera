@@ -111,38 +111,21 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
-            className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="relative w-full max-w-5xl"
           >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8EEFF]">
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)",
-                  }}
-                >
-                  <span className="text-white font-bold text-sm">D</span>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-[#0A1628]">
-                    Request a Demo
-                  </h3>
-                  <p className="text-xs text-[#6B7799]">
-                    Get started with Dera
-                  </p>
-                </div>
-              </div>
+            {/* Big white container card - single main card */}
+            <div className="relative bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 lg:p-8">
+              {/* X button at top-right corner */}
               <button
                 onClick={handleClose}
-                className="w-10 h-10 rounded-xl bg-[#F2F4F8] flex items-center justify-center hover:bg-[#E8EEFF] transition-colors"
+                className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 text-[#6B7799] hover:text-[#0A1628] transition-colors z-10"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0A1628"
+                  stroke="currentColor"
                   strokeWidth="2"
-                  className="w-5 h-5"
+                  className="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8"
                 >
                   <path
                     d="M6 18L18 6M6 6l12 12"
@@ -151,19 +134,40 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                   />
                 </svg>
               </button>
-            </div>
+              <div className="flex items-stretch gap-3 sm:gap-4 md:gap-6 p-2 sm:p-3 md:p-4">
+                {/* Blue card - inside the big white container */}
+                <div className="w-[55%] min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] lg:min-h-[750px] bg-gradient-to-br from-[#8BB4FF] via-[#6BA3FF] to-white rounded-2xl shadow-md flex flex-col items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8 text-center">
+                  <h2 className="text-white/90 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold -mb-3 sm:-mb-4 md:-mb-6" style={{ fontFamily: "var(--font-garamond)" }}>
+                    Get started with
+                  </h2>
+                  <img 
+                    src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg" 
+                    alt="DERA" 
+                    className="w-24 sm:w-32 md:w-44 lg:w-56 h-auto -mt-3 sm:-mt-4 md:-mt-6"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                </div>
 
-            <div className="p-6 md:p-8">
-              <AnimatePresence mode="wait">
-                {formState !== "success" ? (
-                  <motion.form
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onSubmit={handleSubmit}
-                    className="space-y-5"
-                  >
+                {/* Content directly on the big white container */}
+                <div className="flex-1 p-2 md:p-4">
+                  <div className="mb-6 md:mb-8">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#0A1628] mb-2 md:mb-3" style={{ fontFamily: "var(--font-garamond)" }}>
+                      Request a Demo
+                    </h3>
+                    <p className="text-sm md:text-base text-[#6B7799] max-w-lg leading-relaxed">
+                      See how Dera can streamline your claims process. Our team will reach out within 2 business days to schedule your personalized demo.
+                    </p>
+                  </div>
+                  <AnimatePresence mode="wait">
+                    {formState !== "success" ? (
+                      <motion.form
+                        key="form"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onSubmit={handleSubmit}
+                        className="space-y-5"
+                      >
                     <Input
                       label="Full Name"
                       name="fullName"
@@ -281,11 +285,13 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     </p>
                   </motion.div>
                 )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
+                  </AnimatePresence>
+                </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
   );
 };

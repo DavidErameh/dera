@@ -127,7 +127,10 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
       {/* Left: Car Image */}
       <div className="lg:w-1/2 shrink-0">
         <div className="mb-4">
-          <h4 className="font-display text-xl font-bold text-[#0A1628]">
+          <h4 
+            className="text-xl font-bold text-[#0A1628] mb-1"
+            style={{ fontFamily: 'var(--font-garamond)' }}
+          >
             Forensic Validation
           </h4>
           <p className="text-sm text-[#3D4A6B]">
@@ -135,12 +138,17 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
           </p>
         </div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="rounded-2xl overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #F0F3FF 0%, #E8EEFF 100%)",
-            border: "1px solid rgba(79, 142, 247, 0.2)",
-            boxShadow: "0 8px 32px rgba(26, 63, 212, 0.1)",
+            background: 'rgba(255, 255, 255, 0.7)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 8px 32px rgba(26, 63, 212, 0.15)',
           }}
         >
           <div className="aspect-4/3 relative">
@@ -243,12 +251,12 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Right: Progress Tracker */}
       <div className="flex-1 min-w-0">
-        <div className="space-y-3 mt-12">
+        <div className="space-y-3 mt-8">
           {validationChecks.map((check, index) => {
             const position = index + 1;
             const isActive = position === activeNodeCount;
@@ -256,19 +264,29 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
             const isLoading = isActive && index === 0 && phase === "upload";
 
             return (
-              <div
+              <motion.div
                 key={check.id}
-                className="flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-[#E8EEFF]"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-center justify-between px-4 py-3 rounded-xl"
+                style={{
+                  background: isActive ? 'rgba(79, 142, 247, 0.08)' : 'rgba(255, 255, 255, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  border: `1px solid ${isActive ? 'rgba(79, 142, 247, 0.3)' : 'rgba(221, 226, 240, 0.5)'}`,
+                  boxShadow: isActive ? '0 4px 16px rgba(26, 63, 212, 0.1)' : '0 2px 8px rgba(10, 22, 40, 0.04)',
+                }}
               >
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center"
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
                     style={{
-                      backgroundColor: isCompleteItem
-                        ? "#10B981"
+                      background: isCompleteItem
+                        ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
                         : isActive
-                          ? "#4F8EF7"
-                          : "#E8EEFF",
+                          ? 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)'
+                          : 'linear-gradient(135deg, #E8EEFF 0%, #F0F3FF 100%)',
+                      boxShadow: isCompleteItem || isActive ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
                     }}
                   >
                     {isCompleteItem ? (
@@ -312,10 +330,15 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                     {check.label}
                   </span>
                 </div>
-                <span className="text-xs text-[#6B7799]">
+                <span 
+                  className="text-xs font-medium"
+                  style={{
+                    color: isCompleteItem ? '#059669' : isActive ? '#4F8EF7' : '#6B7799',
+                  }}
+                >
                   {isCompleteItem ? "Completed" : isActive ? "In Progress" : "Pending"}
                 </span>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -325,7 +348,12 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-5 p-4 rounded-xl bg-[#10B981]/10 border border-[#10B981]/20 text-center"
+              className="mt-5 p-4 rounded-xl text-center"
+              style={{
+                background: 'rgba(16, 185, 129, 0.1)',
+                border: '1px solid rgba(16, 185, 129, 0.2)',
+                boxShadow: '0 4px 16px rgba(16, 185, 129, 0.15)',
+              }}
             >
               <p className="text-sm font-bold text-[#059669]">
                 All validations passed. Moving to analysis...

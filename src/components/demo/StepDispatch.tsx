@@ -1,13 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "motion/react";
 import { useInView } from "react-intersection-observer";
-
-const MapTilerMap = dynamic(() => import("@/components/ui/MapTilerMap"), {
-  ssr: false,
-});
 
 const garages = [
   { id: 1, name: "Jide Auto Works", distance: "2.3 km", time: "25 min", rating: 4.8 },
@@ -49,7 +44,10 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
       {/* Left: Job Request Notification */}
       <div className="w-5/12 shrink-0">
         <div className="mb-4">
-          <h4 className="font-display text-xl font-bold text-[#0A1628]">
+          <h4 
+            className="text-xl font-bold text-[#0A1628] mb-1"
+            style={{ fontFamily: 'var(--font-garamond)' }}
+          >
             Partner Dispatch
           </h4>
           <p className="text-sm text-[#3D4A6B]">
@@ -67,21 +65,27 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
               transition={{ duration: 0.4 }}
             >
               <div
-                className="rounded-2xl p-5 bg-white"
+                className="rounded-2xl p-5"
                 style={{
-                  border: "1px solid rgba(0, 0, 0, 0.08)",
-                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+                  background: 'rgba(255, 255, 255, 0.7)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
+                  boxShadow: '0 8px 32px rgba(10, 22, 40, 0.08)',
                 }}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #1A3FD4, #4F8EF7)" }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{ 
+                      background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
+                      boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
+                    }}
                   >
-                    <span className="text-white font-bold text-sm">D</span>
+                    <span className="text-white font-bold text-lg">D</span>
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-[#0A1628]/40 tracking-wider uppercase">
+                    <span className="text-[10px] font-bold text-[#0A1628]/50 tracking-wider uppercase">
                       DERA PARTNER
                     </span>
                     <p className="text-[10px] text-[#6B7799]">now</p>
@@ -99,8 +103,11 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     onClick={handleAccept}
-                    className="w-full py-3 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110 flex items-center justify-center gap-2"
-                    style={{ background: "black" }}
+                    className="w-full py-3.5 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110 flex items-center justify-center gap-2"
+                    style={{ 
+                      background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
+                      boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
+                    }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -120,18 +127,26 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
               transition={{ duration: 0.4 }}
               className="p-4 rounded-xl"
               style={{
-                background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05))",
-                border: "1px solid rgba(16, 185, 129, 0.2)",
+                background: 'rgba(16, 185, 129, 0.1)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(16, 185, 129, 0.2)',
+                boxShadow: '0 8px 24px rgba(16, 185, 129, 0.15)',
               }}
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                <div 
+                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                  }}
+                >
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" className="w-5 h-5">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-green-700">Job Accepted</p>
+                  <p className="text-sm font-bold text-[#059669]">Job Accepted</p>
                   <p className="text-xs text-[#3D4A6B]">{acceptedGarage?.name} • on the way</p>
                 </div>
               </div>
@@ -150,27 +165,44 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <p className="text-xs font-semibold text-[#6B7799] uppercase mb-3">
+              <p 
+                className="text-xs font-semibold text-[#6B7799] uppercase mb-3"
+                style={{ fontFamily: 'var(--font-garamond)' }}
+              >
                 Nearby Garages
               </p>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {garages.map((garage, index) => (
                   <motion.div
                     key={garage.id}
                     initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: index === 0 && isAccepted ? 1 : 0.5, y: 0 }}
+                    animate={{ opacity: index === 0 && isAccepted ? 1 : 0.6, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className={`p-3 rounded-xl bg-white ${index === 0 && isAccepted ? 'border-2 border-green-500/30 shadow-md' : 'border border-gray-100'}`}
+                    className="p-4 rounded-xl"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      border: index === 0 && isAccepted ? '1.5px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(221, 226, 240, 0.5)',
+                      boxShadow: index === 0 && isAccepted ? '0 4px 16px rgba(16, 185, 129, 0.15)' : '0 2px 8px rgba(10, 22, 40, 0.04)',
+                    }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${index === 0 && isAccepted ? 'bg-green-500' : 'bg-gray-100'}`}>
+                        <div 
+                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          style={{ 
+                            background: index === 0 && isAccepted 
+                              ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
+                              : 'linear-gradient(135deg, #F0F3FF 0%, #E8EEFF 100%)',
+                            boxShadow: index === 0 && isAccepted ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none',
+                          }}
+                        >
                           {index === 0 && isAccepted ? (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" className="w-4 h-4">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" className="w-5 h-5">
                               <path d="M20 6L9 17l-5-5" />
                             </svg>
                           ) : (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#6B7799" strokeWidth="2" className="w-4 h-4">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#6B7799" strokeWidth="2" className="w-5 h-5">
                               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                             </svg>
                           )}
@@ -181,7 +213,7 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-xs font-bold text-[#0A1628]">{garage.rating}</p>
+                        <p className="text-sm font-bold text-[#0A1628]">{garage.rating}</p>
                         <p className="text-[10px] text-[#6B7799]">rating</p>
                       </div>
                     </div>
@@ -197,19 +229,46 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
               transition={{ duration: 0.5 }}
               className="h-full"
             >
-              <p className="text-xs font-semibold text-[#6B7799] uppercase mb-3">
+              <p 
+                className="text-xs font-semibold text-[#6B7799] uppercase mb-3"
+                style={{ fontFamily: 'var(--font-garamond)' }}
+              >
                 Live Tracking
               </p>
-              <div className="rounded-2xl overflow-hidden" style={{ height: "300px" }}>
-                <MapTilerMap 
-                  center={[3.3792, 6.5244]} 
-                  zoom={13}
-                  markers={[
-                    { lngLat: [3.3792, 6.5244], color: '#10B981', label: 'Garage' },
-                    { lngLat: [3.3892, 6.5344], color: '#1A3FD4', label: 'Customer' },
-                  ]}
-                />
-              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="rounded-2xl overflow-hidden flex items-center justify-center"
+                style={{ 
+                  height: "300px",
+                  background: 'rgba(255, 255, 255, 0.7)',
+                  backdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
+                  boxShadow: '0 8px 32px rgba(26, 63, 212, 0.15)',
+                }}
+              >
+                <div className="text-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", duration: 0.6, delay: 0.2 }}
+                    className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
+                      boxShadow: '0 8px 24px rgba(26, 63, 212, 0.3)',
+                    }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" className="w-8 h-8">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </motion.div>
+                  <p className="text-base font-bold text-[#0A1628] mb-1">Live Tracking</p>
+                  <p className="text-sm text-[#3D4A6B]">Lekki Phase 1 → Jide Auto Works</p>
+                  <p className="text-xs text-[#6B7799] mt-2">ETA: 25 minutes</p>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

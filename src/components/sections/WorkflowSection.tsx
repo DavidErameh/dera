@@ -1,14 +1,9 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { ForensicsTimeline } from "@/components/demo/ForensicsTimeline";
-
-const MapTilerMap = dynamic(() => import("@/components/ui/MapTilerMap"), {
-  ssr: false,
-});
 
 const workflowSteps = [
   {
@@ -987,7 +982,7 @@ export const WorkflowSection = () => {
           className="mb-8"
         >
           <h2 className="font-headline text-6xl sm:text-7xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
-            <span style={{ fontFamily: "var(--font-garamond)", fontSize: "1.2em" }} className="text-[#4F8EF7]">The</span><span className="mr-[-12px]"> </span>Workflow
+            <span className="text-[#4F8EF7]">The</span><span className="mr-[-12px]"> </span>Workflow
           </h2>
           <p className="text-xl sm:text-2xl md:text-3xl font-medium text-[#3D4A6B]">
             Six Steps. Zero Phone Calls.

@@ -53,12 +53,17 @@ export const StepAnalysis = ({ onNext }: { onNext: () => void }) => {
     <div ref={ref} className="flex gap-8">
       {/* Left: Image with ripple transition */}
       <div className="w-1/2 shrink-0">
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="relative rounded-2xl overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #F0F3FF 0%, #E8EEFF 100%)",
-            border: "1px solid rgba(79, 142, 247, 0.2)",
-            boxShadow: "0 8px 32px rgba(26, 63, 212, 0.1)",
+            background: 'rgba(255, 255, 255, 0.7)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 8px 32px rgba(26, 63, 212, 0.15)',
           }}
         >
           <div className="aspect-[4/3] relative">
@@ -120,13 +125,16 @@ export const StepAnalysis = ({ onNext }: { onNext: () => void }) => {
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Right: Analysis Results - no costs, just components */}
       <div className="flex-1 min-w-0">
         <div className="mb-4">
-          <h4 className="font-display text-xl font-bold text-[#0A1628]">
+          <h4 
+            className="text-xl font-bold text-[#0A1628] mb-1"
+            style={{ fontFamily: 'var(--font-garamond)' }}
+          >
             Damage Analysis
           </h4>
           <p className="text-sm text-[#3D4A6B]">
@@ -140,7 +148,7 @@ export const StepAnalysis = ({ onNext }: { onNext: () => void }) => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-2"
+                className="space-y-3"
               >
                 {damageComponents.map((component, index) => (
                   <motion.div
@@ -148,19 +156,28 @@ export const StepAnalysis = ({ onNext }: { onNext: () => void }) => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.2 }}
-                    className="flex items-center justify-between p-4 rounded-xl bg-[#F8F9FC]"
+                    className="flex items-center justify-between p-4 rounded-xl"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.7)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(221, 226, 240, 0.5)',
+                      boxShadow: '0 4px 12px rgba(10, 22, 40, 0.04)',
+                    }}
                   >
                     <div className="flex items-center gap-3">
                       <div
                         className="w-3 h-3 rounded-full"
-                        style={{ background: component.color }}
+                        style={{ 
+                          background: component.color,
+                          boxShadow: `0 0 8px ${component.color}40`,
+                        }}
                       />
                       <div>
                         <p className="text-sm font-bold text-[#0A1628]">
                           {component.label}
                         </p>
                         <p
-                          className="text-xs"
+                          className="text-xs font-medium"
                           style={{ color: component.textColor }}
                         >
                           {component.severity} damage detected
@@ -168,8 +185,11 @@ export const StepAnalysis = ({ onNext }: { onNext: () => void }) => {
                       </div>
                     </div>
                     <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center"
-                      style={{ background: `${component.color}20` }}
+                      className="w-9 h-9 rounded-xl flex items-center justify-center"
+                      style={{ 
+                        background: `${component.color}15`,
+                        border: `1px solid ${component.color}30`,
+                      }}
                     >
                       <svg
                         viewBox="0 0 24 24"
