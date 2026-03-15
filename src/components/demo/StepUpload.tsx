@@ -38,15 +38,6 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
   }, [inView, phase]);
 
   useEffect(() => {
-    if (isComplete) {
-      const timer = setTimeout(() => {
-        onNext();
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [isComplete, onNext]);
-
-  useEffect(() => {
     if (!inView || phase !== "upload") {
       return;
     }
@@ -279,7 +270,7 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
               >
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    className="w-9 h-9 rounded-full flex items-center justify-center"
                     style={{
                       background: isCompleteItem
                         ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'

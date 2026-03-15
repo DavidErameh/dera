@@ -142,19 +142,20 @@ export const StepStatus = ({ onClose }: { onClose: () => void }) => {
             >
               <button
                 onClick={onClose}
-                className="flex-1 px-4 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110"
+                className="flex-1 px-4 py-3 rounded-lg font-semibold text-sm text-white transition-all hover:brightness-125"
                 style={{
-                  background: "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)",
+                  background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
                 }}
               >
-                Start Your Own Demo
+                Request your own Demo
               </button>
-              <button
-                onClick={onClose}
-                className="flex-1 px-4 py-3 rounded-xl font-semibold text-sm text-[#0A1628] bg-white border border-[#E8EEFF] hover:bg-[#F8F9FC]"
+              <a
+                href="mailto:mcdaveltd@gmail.com"
+                className="flex-1 px-4 py-3 rounded-lg font-semibold text-sm text-[#0A1628] bg-white border border-[#E8EEFF] hover:bg-[#F8F9FC] flex items-center justify-center"
               >
                 Talk to Sales
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         )}

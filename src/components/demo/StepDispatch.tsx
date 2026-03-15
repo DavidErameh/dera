@@ -76,13 +76,14 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center"
-                    style={{ 
-                      background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
-                      boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
-                    }}
+                    className="w-8 h-8 overflow-hidden flex items-center justify-center"
                   >
-                    <span className="text-white font-bold text-lg">D</span>
+                    <img
+                      src="/logos/6458c1a3-4fd2-4902-87ef-8ebf7420c902_removalai_preview.png"
+                      alt="Dera"
+                      className="w-full h-full object-contain"
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-[#0A1628]/50 tracking-wider uppercase">
@@ -103,10 +104,10 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     onClick={handleAccept}
-                    className="w-full py-3.5 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-lg font-semibold text-sm text-white transition-all hover:brightness-125 flex items-center justify-center gap-2"
                     style={{ 
-                      background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
-                      boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
+                      background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
                     }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -135,7 +136,7 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
             >
               <div className="flex items-center gap-3">
                 <div 
-                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  className="w-12 h-12 rounded-full flex items-center justify-center"
                   style={{
                     background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
                     boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
@@ -189,7 +190,7 @@ export const StepDispatch = ({ onNext, triggerAccept }: { onNext: () => void; tr
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div 
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          className="w-10 h-10 rounded-full flex items-center justify-center"
                           style={{ 
                             background: index === 0 && isAccepted 
                               ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'

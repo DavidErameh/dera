@@ -118,13 +118,7 @@ export const DemoModal = ({
                 <React.Fragment key={step.id}>
                   <button
                     onClick={() => setCurrentStep(index)}
-                    className={`flex items-center gap-2 px-2 py-1.5 rounded-lg transition-all ${
-                      index === currentStep
-                        ? "bg-white shadow-md"
-                        : index < currentStep
-                          ? "bg-transparent"
-                          : "bg-transparent opacity-40"
-                    }`}
+                    className="flex items-center justify-center"
                   >
                     <div
                       className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-semibold ${
@@ -137,7 +131,11 @@ export const DemoModal = ({
                       style={
                         index === currentStep
                           ? {
-                              background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
+                              background: '#4F8EF7',
+                            }
+                          : index < currentStep
+                          ? {
+                              background: '#1A3FD4',
                             }
                           : {}
                       }
@@ -227,26 +225,13 @@ export const DemoModal = ({
                 </button>
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:brightness-110 hover:shadow-lg"
+                  className="px-6 py-3 rounded-lg font-semibold text-sm text-white transition-all hover:brightness-125"
                   style={{
-                    background: 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)',
-                    boxShadow: '0 4px 16px rgba(26, 63, 212, 0.3)',
+                    background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
                   }}
                 >
-                  {currentStep === 4 ? (dispatchAccepted ? "Finish" : "Accept & Continue") : "Continue"}
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="w-4 h-4"
-                  >
-                    <path
-                      d="M5 12h14M12 5l7 7-7 7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  {currentStep === 0 ? "Continue" : currentStep === 4 ? (dispatchAccepted ? "Finish" : "Accept & Continue") : "Next"}
                 </button>
               </div>
             )}

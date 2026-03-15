@@ -141,7 +141,7 @@ export const StepPricing = ({ onNext }: { onNext: () => void }) => {
             >
               <div className="flex items-center gap-3">
                 <div 
-                  className="w-6 h-6 rounded-lg flex items-center justify-center"
+                  className="w-6 h-6 rounded-full flex items-center justify-center"
                   style={{
                     background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
                     boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)',
