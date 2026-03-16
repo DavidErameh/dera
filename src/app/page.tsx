@@ -8,7 +8,6 @@ import { WorkflowSection } from "@/components/sections/WorkflowSection";
 import { WhoSection } from "@/components/sections/WhoSection";
 import { USPSection } from "@/components/sections/USPSection";
 import { StatsSection } from "@/components/sections/StatsSection";
-import { MarketSection } from "@/components/sections/MarketSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
 import { DemoModal } from "@/components/demo/DemoModal";
@@ -39,7 +38,6 @@ export default function Home() {
       <WhoSection />
       <USPSection />
       <StatsSection />
-      <MarketSection />
       <CTASection />
       <Footer />
       <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />

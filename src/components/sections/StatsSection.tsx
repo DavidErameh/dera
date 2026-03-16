@@ -14,7 +14,7 @@ const AnimatedNumber = ({
 }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-  const spring = useSpring(0, { stiffness: 50, damping: 20 });
+  const spring = useSpring(0, { duration: 1500 });
   const display = useTransform(spring, (current) =>
     `${prefix}${current.toFixed(current % 1 === 0 ? 0 : 2)}${suffix}`,
   );

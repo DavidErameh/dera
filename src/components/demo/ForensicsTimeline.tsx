@@ -157,9 +157,9 @@ export const ForensicsTimeline: React.FC<ForensicsTimelineProps> = ({
           style={{
             background:
               "linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(96, 165, 250, 0.95) 100%)",
-            backdropFilter: "blur(12px)",
             boxShadow: "inset 0 0 8px rgba(255, 255, 255, 0.4)",
             border: "1px solid rgba(255, 255, 255, 0.3)",
+            willChange: 'transform',
           }}
           initial={{ scaleY: 0 }}
           animate={inView ? { scaleY: stopProgress } : { scaleY: 0 }}

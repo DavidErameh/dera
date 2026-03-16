@@ -71,6 +71,7 @@ export const NetworkSection = () => {
                     animate={{ offsetDistance: '100%' }}
                     style={{
                       offsetPath: `path("M 100 ${node.y} C ${140 + controlOffset} ${node.y}, ${centerX - 80} ${centerY}, ${centerX - 48} ${centerY}")`,
+                      willChange: 'transform',
                     }}
                     transition={{
                       duration: 2 + i * 0.3,
@@ -185,6 +186,7 @@ export const NetworkSection = () => {
                 offsetPath: `path("M ${centerX} ${topNodeY + 22} C ${centerX} ${
                   topNodeY + 70
                 }, ${centerX} ${centerY - 80}, ${centerX} ${centerY - 48}")`,
+                willChange: 'transform',
               }}
               transition={{
                 duration: 2,
@@ -346,6 +348,7 @@ export const NetworkSection = () => {
               animate={{ offsetDistance: '100%' }}
               style={{
                 offsetPath: `path("M ${centerX + 48} ${centerY} C ${centerX + 90} ${centerY}, ${rightX - 60} ${centerY}, ${rightX - 26} ${centerY}")`,
+                willChange: 'transform',
               }}
               transition={{
                 duration: 1.5,

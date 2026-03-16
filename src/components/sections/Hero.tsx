@@ -113,7 +113,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="flex justify-center relative pb-0"
-              style={{ marginTop: '1rem', marginBottom: '-12rem' }}
+              style={{ marginTop: '1rem', marginBottom: '-12rem', willChange: 'transform, opacity' }}
             >
               {/* Subtle glow / shadow behind the iPhone for depth */}
               <div 

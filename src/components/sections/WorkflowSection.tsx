@@ -81,11 +81,12 @@ const StepSubSection = ({
       <div className="relative w-full aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-visible">
         {/* Base image */}
         <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-          <img
-            src="/DAMAGED AREA_20260304_004634_0000.png"
-            alt="Wrecked front bumper"
-            className="w-full h-full object-cover"
-          />
+            <img
+              src="/DAMAGED AREA_20260304_004634_0000.png"
+              alt="Wrecked front bumper"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
 
           {/* Curved Grid Overlay */}
           <svg
@@ -845,6 +846,7 @@ const StepSubSection = ({
                 src={step.image}
                 alt={step.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               {/* White grid overlay */}
               <div

@@ -1,9 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'react-intersection-observer';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -12,14 +11,14 @@ import 'swiper/css/pagination';
 
 const problemCards = [
   {
-    title: 'The 60-Day Clock',
-    label: 'COMPLIANCE',
-    body: 'NIIRA 2025 mandates settlement within 60 days. Every manual handoff is days you cannot get back. Non-compliance triggers NAICOM sanctions - not warnings.',
-  },
-  {
     title: 'The Visibility Gap',
     label: 'OPERATIONS',
     body: "The second a customer hits submit, they lose visibility. For the next 3 to 10 days, they sit with a frozen Pending status while the insurer and garage operate on separate islands of information. The data dies between handoffs. The customer calls support just to hear \"we're checking.\" It's a week of anxiety and silence - and it's entirely preventable.",
+  },
+  {
+    title: 'The 60-Day Clock',
+    label: 'COMPLIANCE',
+    body: 'NIIRA 2025 mandates settlement within 60 days. Every manual handoff is days you cannot get back. Non-compliance triggers NAICOM sanctions - not warnings.',
   },
   {
     title: 'Paper-Based Fraud',
@@ -53,41 +52,41 @@ type CardProps = {
   stat?: string;
   statLabel?: string;
   source?: string;
-  index: number;
+  isExpanded: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 };
 
-const Card = ({ title, label, body, stat, statLabel, source, index }: CardProps) => {
-  const isDarkCard = index === 5;
-  const isBlueAccent = index === 1;
-  const needsVisualSpace = index !== 1; // All cards except "The Visibility Gap" need space for visuals
-
+const Card = React.memo(({ title, label, body, stat, statLabel, source, isExpanded, onMouseEnter, onMouseLeave }: CardProps) => {
   return (
-    <div
-      className={`h-full rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${needsVisualSpace ? 'md:py-16' : ''}`}
+    <motion.div
+      className="w-[320px] h-[320px] rounded-2xl p-8 flex flex-col bg-white cursor-pointer relative shrink-0 overflow-hidden"
       style={{
-        background: isDarkCard
-          ? 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)'
-          : isBlueAccent
-            ? 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)'
-            : '#FFFFFF',
-        backdropFilter: 'blur(16px)',
-        boxShadow: isBlueAccent
-          ? '0 12px 32px rgba(26, 63, 212, 0.25)'
-          : isDarkCard
-            ? '0 12px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
-            : '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04)',
+        boxShadow: isExpanded 
+          ? '0 20px 50px rgba(0, 0, 0, 0.2)'
+          : '0 4px 16px rgba(0, 0, 0, 0.08)',
+        zIndex: isExpanded ? 100 : 10,
+        willChange: 'width',
+      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      initial={false}
+      animate={{ 
+        width: isExpanded ? 520 : 320,
+      }}
+      transition={{ 
+        duration: 0.45,
+        ease: "easeInOut",
       }}
     >
-      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-3 ${
-        isDarkCard || isBlueAccent ? 'text-white/40' : 'text-[#8B7EDB]'
-      }`}>
+      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB]">
         {label}
       </span>
 
-      <div className="mb-3">
+      <div className="mt-4">
         {stat ? (
-          <div className="flex items-baseline gap-2">
-            <span className="font-headline text-5xl md:text-6xl font-bold text-white">
+          <div className="flex items-baseline gap-3">
+            <span className="font-headline text-5xl md:text-6xl font-bold text-[#1A1A1A]">
               {stat}
             </span>
             <span className="text-xl md:text-2xl text-[#4F8EF7] font-medium">
@@ -95,36 +94,63 @@ const Card = ({ title, label, body, stat, statLabel, source, index }: CardProps)
             </span>
           </div>
         ) : (
-          <h3 className={`font-headline text-xl md:text-2xl font-bold leading-tight ${
-            isBlueAccent || isDarkCard ? 'text-white' : 'text-[#1A1A1A]'
-          }`}>
+          <h3 className="font-headline text-2xl md:text-3xl font-bold leading-tight text-[#1A1A1A]">
             {title}
           </h3>
         )}
       </div>
 
-      <p className={`text-sm leading-relaxed ${
-        isDarkCard || isBlueAccent ? 'text-white/70' : 'text-[#6B6B6B]'
-      }`}>
-        {body}
-      </p>
-
-      {source && isDarkCard && (
-        <div className="mt-auto pt-4">
-          <span className="text-[10px] text-white/30 uppercase tracking-wider">
-            {source}
-          </span>
+      {/* Content overlay */}
+      <motion.div
+        className="absolute left-0 right-0 px-8 pb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isExpanded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ 
+          duration: 0.1, 
+          delay: isExpanded ? 0.45 : 0
+        }}
+        style={{ zIndex: 10, bottom: 0, maxHeight: '60%', willChange: 'opacity, transform' }}
+      >
+        <div className="bg-white/98 rounded-lg p-4">
+          <p className="text-base leading-6 text-[#4a4a4a] line-clamp-4">
+            {body}
+          </p>
+          {source && (
+            <div className="pt-2">
+              <span className="text-xs text-[#6B6B6B]/60 uppercase tracking-wider">
+                {source}
+              </span>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </motion.div>
+    </motion.div>
   );
-};
+});
 
 export const ProblemSection = () => {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
+  const [expandedRow1, setExpandedRow1] = useState<number>(0);
+  const [expandedRow2, setExpandedRow2] = useState<number>(2);
+
+  const handleMouseEnterRow1 = (index: number) => {
+    setExpandedRow1(index);
+  };
+
+  const handleMouseLeaveRow1 = () => {
+    setExpandedRow1(0);
+  };
+
+  const handleMouseEnterRow2 = (index: number) => {
+    setExpandedRow2(index);
+  };
+
+  const handleMouseLeaveRow2 = () => {
+    setExpandedRow2(2);
+  };
 
   return (
-    <section id="problem" className="bg-gradient-to-b from-[#f8fafc] to-white py-16 lg:py-24 overflow-hidden">
+    <section id="problem" className="bg-gradient-to-b from-[#f1f5f9] to-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12" ref={ref}>
         {/* Heading Area */}
         <motion.div
@@ -133,7 +159,7 @@ export const ProblemSection = () => {
           transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-16"
         >
-          <h2 className="font-headline text-center md:text-left text-4xl sm:text-5xl md:text-8xl font-bold text-[#0A1628] leading-[1.05] mb-4">
+          <h2 className="font-headline text-center md:text-left text-4xl sm:text-5xl md:text-7xl font-bold text-[#0A1628] leading-[1.05] mb-4">
             The System That is <span className="text-[#4F8EF7]">Failing</span> <span style={{ fontFamily: "var(--font-garamond)" }}>Everyone</span>
           </h2>
           <p className="text-center md:text-left text-lg sm:text-xl md:text-3xl font-medium text-[#3D4A6B]">
@@ -160,41 +186,75 @@ export const ProblemSection = () => {
           >
             {problemCards.map((card, index) => (
               <SwiperSlide key={index} style={{ width: '85%', height: '500px' }}>
-                <Card {...card} index={index} />
+                <div
+                  className="h-full rounded-2xl p-8 flex flex-col bg-white cursor-pointer overflow-hidden"
+                  style={{
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                  }}
+                >
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB]">
+                    {card.label}
+                  </span>
+                  <div className="mt-4">
+                    {card.stat ? (
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-headline text-5xl md:text-6xl font-bold text-[#1A1A1A]">
+                          {card.stat}
+                        </span>
+                        <span className="text-xl md:text-2xl text-[#4F8EF7] font-medium">
+                          {card.statLabel}
+                        </span>
+                      </div>
+                    ) : (
+                      <h3 className="font-headline text-2xl md:text-3xl font-bold leading-tight text-[#1A1A1A]">
+                        {card.title}
+                      </h3>
+                    )}
+                  </div>
+                  <div className="flex-1" />
+                  <p className="text-base leading-7 text-[#4a4a4a]">
+                    {card.body}
+                  </p>
+                  {card.source && (
+                    <div className="pt-2">
+                      <span className="text-xs text-[#6B6B6B]/60 uppercase tracking-wider">
+                        {card.source}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        {/* Desktop Grid - Asymmetric 2-row layout */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
-          className="hidden md:grid grid-cols-12 gap-5"
-        >
-          {/* Row 1: 1 Rectangle + 2 Squares */}
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-5">
-            <Card {...problemCards[1]} index={1} />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-4">
-            <Card {...problemCards[0]} index={0} />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-3">
-            <Card {...problemCards[2]} index={2} />
-          </motion.div>
-
-          {/* Row 2 */}
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-4">
-            <Card {...problemCards[3]} index={3} />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-3">
-            <Card {...problemCards[4]} index={4} />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="col-span-12 md:col-span-5">
-            <Card {...problemCards[5]} index={5} />
-          </motion.div>
-        </motion.div>
+        {/* Desktop - Square Cards (2 rows, centered with tiny gaps) */}
+        <div className="hidden md:flex flex-col gap-4 w-full max-w-6xl mx-auto">
+          {/* Row 1: Visibility Gap expanded by default (index 0) */}
+          <div className="flex justify-center gap-2">
+            {problemCards.slice(0, 3).map((card, index) => (
+              <Card
+                key={index}
+                {...card}
+                isExpanded={expandedRow1 === index}
+                onMouseEnter={() => handleMouseEnterRow1(index)}
+                onMouseLeave={handleMouseLeaveRow1}
+              />
+            ))}
+          </div>
+          {/* Row 2: 9M card (last card) expanded by default (index 2 = card at position 2 in row 2 = global index 5) */}
+          <div className="flex justify-center gap-2">
+            {problemCards.slice(3, 6).map((card, index) => (
+              <Card
+                key={index + 3}
+                {...card}
+                isExpanded={expandedRow2 === index}
+                onMouseEnter={() => handleMouseEnterRow2(index)}
+                onMouseLeave={handleMouseLeaveRow2}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
