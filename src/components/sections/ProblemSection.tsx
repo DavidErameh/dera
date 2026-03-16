@@ -79,7 +79,25 @@ const Card = React.memo(({ title, label, body, stat, statLabel, source, isExpand
         ease: "easeInOut",
       }}
     >
-      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB]">
+      {/* Water gradient layers for unexpanded cards */}
+      {!isExpanded && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{ zIndex: 0 }}
+          animate={{ opacity: isExpanded ? 0 : 1 }}
+          transition={{ duration: 0.45 }}
+        >
+          {/* Light blue gradient background for unexpanded cards */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to top, rgba(79, 142, 247, 0.4) 0%, rgba(79, 142, 247, 0.15) 50%, transparent 100%)',
+            }}
+          />
+        </motion.div>
+      )}
+
+      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB] relative z-[2]">
         {label}
       </span>
 
@@ -195,7 +213,7 @@ export const ProblemSection = () => {
                   <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB]">
                     {card.label}
                   </span>
-                  <div className="mt-4">
+      <div className="mt-4 relative z-[2]">
                     {card.stat ? (
                       <div className="flex items-baseline gap-3">
                         <span className="font-headline text-5xl md:text-6xl font-bold text-[#1A1A1A]">
