@@ -116,7 +116,7 @@ export const RequestDemoModal = ({
             transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
             className="relative w-full max-w-5xl"
           >
-            <div className="relative bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
+            <div className="relative bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 lg:p-8 overflow-y-auto max-h-[85vh] md:max-h-[none]">
               <button
                 onClick={handleClose}
                 className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 text-[#6B7799] hover:text-[#0A1628] transition-colors z-10"
@@ -156,20 +156,20 @@ export const RequestDemoModal = ({
                 {/* Form section - full width on mobile */}
                 <div className="flex-1 w-full p-0 md:p-4">
                   {/* Mobile header - only show on mobile */}
-                  <div className="md:hidden text-center mb-6">
+                  <div className="md:hidden text-center mb-4">
                     <img
                       src="/logos/fc2cd7c8-3df2-4dff-9558-cecbf5a1abce_removalai_preview.svg"
                       alt="DERA"
-                      className="w-20 h-auto mx-auto mb-3"
+                      className="w-16 h-auto mx-auto mb-2"
                       style={{ filter: "brightness(0)" }}
                     />
                     <h3
-                      className="text-2xl font-semibold text-[#0A1628]"
+                      className="text-xl font-semibold text-[#0A1628]"
                       style={{ fontFamily: "var(--font-garamond)" }}
                     >
                       Request a Demo
                     </h3>
-                    <p className="text-sm text-[#6B7799] mt-2 leading-relaxed">
+                    <p className="text-xs text-[#6B7799] mt-1 leading-relaxed">
                       See how Dera can streamline your claims process.
                     </p>
                   </div>
@@ -197,7 +197,7 @@ export const RequestDemoModal = ({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onSubmit={handleSubmit}
-                        className="space-y-4 md:space-y-5"
+                        className="space-y-3 md:space-y-5"
                       >
                         <Input
                           label="Full Name"
@@ -208,11 +208,11 @@ export const RequestDemoModal = ({
                           error={errors.fullName}
                           required
                         />
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                           <Input
                             label="Company Name"
                             name="companyName"
-                            placeholder="e.g. Leadway Assurance"
+                            placeholder="e.g. Leadway"
                             value={formData.companyName}
                             onChange={handleChange}
                             error={errors.companyName}
@@ -239,9 +239,9 @@ export const RequestDemoModal = ({
                           required
                         />
 
-                        <div className="flex flex-col gap-1.5">
-                          <label className="text-sm font-medium text-[#0A1628]">
-                            Monthly Motor Claims Volume{" "}
+                        <div className="flex flex-col gap-1">
+                          <label className="text-xs md:text-sm font-medium text-[#0A1628]">
+                            Claims Volume{" "}
                             <span className="text-red-500">*</span>
                           </label>
                           <select
@@ -249,7 +249,7 @@ export const RequestDemoModal = ({
                             value={formData.volume}
                             onChange={handleChange}
                             className={cn(
-                              "w-full px-4 py-3 text-base bg-white border rounded-[8px] transition-all duration-200 outline-none appearance-none",
+                              "w-full px-3 py-2 md:py-3 text-sm md:text-base bg-white border rounded-[8px] transition-all duration-200 outline-none appearance-none",
                               "border-gray-200 hover:border-gray-300 focus:border-blue-700 focus:ring-2 focus:ring-blue-50",
                               errors.volume &&
                                 "border-red-500 text-red-500 focus:border-red-500 focus:ring-red-50",
@@ -281,7 +281,7 @@ export const RequestDemoModal = ({
                           type="submit"
                           variant="primary"
                           size="lg"
-                          className="w-full mt-2"
+                          className="w-full mt-1 md:mt-2 text-sm md:text-base"
                           loading={formState === "loading"}
                         >
                           {formState === "loading"
@@ -294,15 +294,15 @@ export const RequestDemoModal = ({
                         key="success"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="text-center py-8"
+                        className="text-center py-4 md:py-8"
                       >
-                        <div className="bg-green-100 text-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div className="bg-green-100 text-green-600 w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-6">
                           <svg
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="3"
-                            className="w-10 h-10"
+                            className="w-6 h-6 md:w-10 md:h-10"
                           >
                             <path
                               d="M20 6L9 17l-5-5"
@@ -311,10 +311,10 @@ export const RequestDemoModal = ({
                             />
                           </svg>
                         </div>
-                        <h3 className="font-display text-2xl font-bold text-[#0A1628] mb-4">
+                        <h3 className="font-display text-lg md:text-2xl font-bold text-[#0A1628] mb-2 md:mb-4">
                           We received your request.
                         </h3>
-                        <p className="text-[#6B7799] leading-relaxed">
+                        <p className="text-xs md:text-sm text-[#6B7799] leading-relaxed">
                           A member of the Dera team will reach out <br />
                           within two business days.
                         </p>
