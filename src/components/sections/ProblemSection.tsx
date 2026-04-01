@@ -79,23 +79,20 @@ const Card = React.memo(({ title, label, body, stat, statLabel, source, isExpand
         ease: "easeInOut",
       }}
     >
-      {/* Water gradient layers for unexpanded cards */}
-      {!isExpanded && (
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          style={{ zIndex: 0 }}
-          animate={{ opacity: isExpanded ? 0 : 1 }}
-          transition={{ duration: 0.45 }}
-        >
-          {/* Light blue gradient background for unexpanded cards */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to top, rgba(79, 142, 247, 0.4) 0%, rgba(79, 142, 247, 0.15) 50%, transparent 100%)',
-            }}
-          />
-        </motion.div>
-      )}
+      {/* Gradient background for unexpanded cards */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 0 }}
+        animate={{ opacity: isExpanded ? 0 : 1 }}
+        transition={{ duration: 0.45 }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 150% 100% at 50% 0%, #EBF5FF 0%, #C5DFFA 60%, #9DC4EE 100%)',
+          }}
+        />
+      </motion.div>
 
       <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B7EDB] relative z-[2]">
         {label}
