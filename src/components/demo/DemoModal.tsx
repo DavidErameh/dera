@@ -89,20 +89,20 @@ export const DemoModal = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
-            className="relative w-full max-w-5xl mx-4 bg-white rounded-3xl shadow-2xl overflow-hidden"
-            style={{ height: "680px" }}
+            className="relative w-full max-w-5xl mx-2 md:mx-4 bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden"
+            style={{ maxHeight: "90vh" }}
           >
             {/* Close Button - Top Right */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 z-10 p-1"
+              className="absolute top-2 right-2 md:top-3 md:right-3 z-10 p-1"
             >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#9CA3AF"
                 strokeWidth="3"
-                className="w-7 h-7"
+                className="w-5 h-5 md:w-7 md:h-7"
               >
                 <path
                   d="M4 4l16 16M4 20L20 4"
@@ -112,8 +112,8 @@ export const DemoModal = ({
               </svg>
             </button>
 
-            {/* Minimal Progress Indicator */}
-            <div className="flex items-center justify-center gap-2 px-6 py-4 bg-[#F8F9FC] border-b border-[#E8EEFF]">
+            {/* Minimal Progress Indicator - Compact */}
+            <div className="flex items-center justify-center gap-1.5 md:gap-2 px-4 py-2 md:py-3 bg-[#F8F9FC] border-b border-[#E8EEFF]">
               {steps.map((step, index) => (
                 <React.Fragment key={step.id}>
                   <button
@@ -121,7 +121,7 @@ export const DemoModal = ({
                     className="flex items-center justify-center"
                   >
                     <div
-                      className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-semibold ${
+                      className={`w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-semibold ${
                         index === currentStep
                           ? "text-white"
                           : index < currentStep
@@ -130,14 +130,10 @@ export const DemoModal = ({
                       }`}
                       style={
                         index === currentStep
-                          ? {
-                              background: '#4F8EF7',
-                            }
+                          ? { background: "#4F8EF7" }
                           : index < currentStep
-                          ? {
-                              background: '#1A3FD4',
-                            }
-                          : {}
+                            ? { background: "#1A3FD4" }
+                            : {}
                       }
                     >
                       {index < currentStep ? (
@@ -146,7 +142,7 @@ export const DemoModal = ({
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="3"
-                          className="w-3 h-3"
+                          className="w-2 h-2 md:w-3 md:h-3"
                         >
                           <path
                             d="M20 6L9 17l-5-5"
@@ -161,11 +157,12 @@ export const DemoModal = ({
                   </button>
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-6 h-0.5 ${index < currentStep ? "" : ""}`}
+                      className="w-3 md:w-6 h-0.5"
                       style={{
-                        background: index < currentStep 
-                          ? 'linear-gradient(90deg, #4F8EF7 0%, #1A3FD4 100%)' 
-                          : 'linear-gradient(90deg, #DDE2F0 0%, #E8EEFF 100%)',
+                        background:
+                          index < currentStep
+                            ? "linear-gradient(90deg, #4F8EF7 0%, #1A3FD4 100%)"
+                            : "linear-gradient(90deg, #DDE2F0 0%, #E8EEFF 100%)",
                       }}
                     />
                   )}
@@ -173,10 +170,10 @@ export const DemoModal = ({
               ))}
             </div>
 
-            {/* Step Content */}
+            {/* Step Content - Compact */}
             <div
-              className="p-6 overflow-y-auto scrollbar-hide bg-white"
-              style={{ height: "520px" }}
+              className="p-3 md:p-5 overflow-y-auto scrollbar-hide bg-white"
+              style={{ maxHeight: "calc(90vh - 100px)" }}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -190,20 +187,25 @@ export const DemoModal = ({
                   {currentStep === 1 && <StepUpload onNext={handleNext} />}
                   {currentStep === 2 && <StepAnalysis onNext={handleNext} />}
                   {currentStep === 3 && <StepPricing onNext={handleNext} />}
-                  {currentStep === 4 && <StepDispatch onNext={handleNext} triggerAccept={dispatchAccepted} />}
+                  {currentStep === 4 && (
+                    <StepDispatch
+                      onNext={handleNext}
+                      triggerAccept={dispatchAccepted}
+                    />
+                  )}
                   {currentStep === 5 && <StepStatus onClose={onClose} />}
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Bottom Navigation - Integrated into card */}
+            {/* Bottom Navigation - Compact */}
             {currentStep < 5 && (
-              <div className="flex items-center justify-between px-6 py-4 border-t border-[#E8EEFF] bg-white rounded-b-3xl">
+              <div className="flex items-center justify-between px-3 md:px-5 py-2 md:py-3 border-t border-[#E8EEFF] bg-white rounded-b-2xl md:rounded-b-3xl">
                 <button
                   onClick={handlePrev}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-colors ${
-                    currentStep === 0 
-                      ? "text-[#DDE2F0] cursor-not-allowed" 
+                  className={`flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg font-medium text-xs md:text-sm transition-colors ${
+                    currentStep === 0
+                      ? "text-[#DDE2F0] cursor-not-allowed"
                       : "text-[#6B7799] hover:text-[#0A1628]"
                   }`}
                   disabled={currentStep === 0}
@@ -213,7 +215,7 @@ export const DemoModal = ({
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="w-4 h-4"
+                    className="w-3 h-3 md:w-4 md:h-4"
                   >
                     <path
                       d="M19 12H5M12 19l-7-7 7-7"
@@ -225,13 +227,21 @@ export const DemoModal = ({
                 </button>
                 <button
                   onClick={handleNext}
-                  className="px-6 py-3 rounded-lg font-semibold text-sm text-white transition-all hover:brightness-125"
+                  className="px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm text-white transition-all hover:brightness-125"
                   style={{
-                    background: 'linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
+                    background:
+                      "linear-gradient(to bottom, #2A2A2A 0%, #000000 100%)",
+                    boxShadow:
+                      "0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)",
                   }}
                 >
-                  {currentStep === 0 ? "Continue" : currentStep === 4 ? (dispatchAccepted ? "Finish" : "Accept & Continue") : "Next"}
+                  {currentStep === 0
+                    ? "Continue"
+                    : currentStep === 4
+                      ? dispatchAccepted
+                        ? "Finish"
+                        : "Accept"
+                      : "Next"}
                 </button>
               </div>
             )}

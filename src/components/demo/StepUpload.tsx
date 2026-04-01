@@ -114,17 +114,17 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
   const roundedProgress = Math.round(uploadProgress);
 
   return (
-    <div ref={ref} className="flex flex-col lg:flex-row gap-8">
+    <div ref={ref} className="flex flex-col md:lg:flex-row gap-4 md:lg:8">
       {/* Left: Car Image */}
-      <div className="lg:w-1/2 shrink-0">
-        <div className="mb-4">
-          <h4 
-            className="text-xl font-bold text-[#0A1628] mb-1"
-            style={{ fontFamily: 'var(--font-garamond)' }}
+      <div className="md:w-1/2 shrink-0 order-2 md:order-1">
+        <div className="mb-3 md:mb-4">
+          <h4
+            className="text-base md:text-xl font-bold text-[#0A1628] mb-1"
+            style={{ fontFamily: "var(--font-garamond)" }}
           >
             Forensic Validation
           </h4>
-          <p className="text-sm text-[#3D4A6B]">
+          <p className="text-xs md:text-sm text-[#3D4A6B]">
             Every photo is validated before analysis
           </p>
         </div>
@@ -133,16 +133,16 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl overflow-hidden"
+          className="rounded-xl md:rounded-2xl overflow-hidden"
           style={{
-            background: 'rgba(255, 255, 255, 0.7)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(255, 255, 255, 0.4)',
-            boxShadow: '0 8px 32px rgba(26, 63, 212, 0.15)',
+            background: "rgba(255, 255, 255, 0.7)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255, 255, 255, 0.4)",
+            boxShadow: "0 4px 16px rgba(26, 63, 212, 0.15)",
           }}
         >
-          <div className="aspect-4/3 relative">
+          <div className="aspect-4/3 md:aspect-4/3 relative">
             <img
               src="/rip-2011-c300-v0-ghi5rkw83qva1.jpg"
               alt="Mercedes C300"
@@ -158,9 +158,12 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                   exit={{ opacity: 0 }}
                   className="absolute inset-0 flex items-center justify-center bg-black/30"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 relative">
-                      <svg className="w-full h-full animate-spin" viewBox="0 0 100 100">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-6 text-center">
+                    <div className="w-10 h-10 md:w-16 md:h-16 mx-auto mb-2 md:mb-3 relative">
+                      <svg
+                        className="w-full h-full animate-spin"
+                        viewBox="0 0 100 100"
+                      >
                         <circle
                           cx="50"
                           cy="50"
@@ -178,21 +181,29 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                           strokeWidth="8"
                           strokeLinecap="round"
                           strokeDasharray={251.2}
-                          strokeDashoffset={251.2 - (251.2 * roundedProgress) / 100}
+                          strokeDashoffset={
+                            251.2 - (251.2 * roundedProgress) / 100
+                          }
                           transform="rotate(-90 50 50)"
                         />
                         <defs>
-                          <linearGradient id="uploadGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <linearGradient
+                            id="uploadGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%"
+                          >
                             <stop offset="0%" stopColor="#4F8EF7" />
                             <stop offset="100%" stopColor="#1A3FD4" />
                           </linearGradient>
                         </defs>
                       </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-[#0A1628]">
+                      <span className="absolute inset-0 flex items-center justify-center text-[10px] md:text-sm font-bold text-[#0A1628]">
                         {roundedProgress}%
                       </span>
                     </div>
-                    <p className="text-sm font-semibold text-[#0A1628]">
+                    <p className="text-xs md:text-sm font-semibold text-[#0A1628]">
                       Uploading...
                     </p>
                   </div>
@@ -203,22 +214,22 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute bottom-4 left-4 right-4"
+                  className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4"
                 >
-                  <div className="p-3 rounded-xl bg-white/95 backdrop-blur-sm border border-[#10B981]/30">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-5 h-5 rounded-full bg-[#10B981] flex items-center justify-center">
+                  <div className="p-2 md:p-3 rounded-lg md:rounded-xl bg-white/95 backdrop-blur-sm border border-[#10B981]/30">
+                    <div className="flex items-center gap-2 mb-1 md:mb-2">
+                      <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#10B981] flex items-center justify-center">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="white"
                           strokeWidth="3"
-                          className="w-3 h-3"
+                          className="w-2 h-2 md:w-3 md:h-3"
                         >
                           <path d="M20 6L9 17l-5-5" />
                         </svg>
                       </div>
-                      <span className="text-xs font-semibold text-[#10B981]">
+                      <span className="text-[10px] md:text-xs font-semibold text-[#10B981]">
                         Registered with Insurance
                       </span>
                     </div>
@@ -226,14 +237,14 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                       <img
                         src="/rip-2011-c300-v0-ghi5rkw83qva1.jpg"
                         alt="Mercedes C300"
-                        className="w-10 h-10 rounded-lg object-cover"
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover"
                       />
                       <div>
-                        <p className="text-sm font-bold text-[#0A1628]">
+                        <p className="text-xs md:text-sm font-bold text-[#0A1628]">
                           Mercedes-Benz C300
                         </p>
-                        <p className="text-xs text-[#6B7799]">
-                          Lagos, Nigeria • 2023
+                        <p className="text-[10px] md:text-xs text-[#6B7799]">
+                          Lagos, Nigeria
                         </p>
                       </div>
                     </div>
@@ -245,9 +256,9 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
         </motion.div>
       </div>
 
-      {/* Right: Progress Tracker */}
-      <div className="flex-1 min-w-0">
-        <div className="space-y-3 mt-8">
+      {/* Right: Progress Tracker - Order 1 on mobile */}
+      <div className="flex-1 min-w-0 order-1 md:order-2">
+        <div className="space-y-2 md:space-y-3 mt-0 md:mt-6">
           {validationChecks.map((check, index) => {
             const position = index + 1;
             const isActive = position === activeNodeCount;
@@ -260,24 +271,31 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-center justify-between px-4 py-3 rounded-xl"
+                className="flex items-center justify-between px-3 md:px-4 py-2 md:py-3 rounded-lg md:rounded-xl"
                 style={{
-                  background: isActive ? 'rgba(79, 142, 247, 0.08)' : 'rgba(255, 255, 255, 0.7)',
-                  backdropFilter: 'blur(8px)',
-                  border: `1px solid ${isActive ? 'rgba(79, 142, 247, 0.3)' : 'rgba(221, 226, 240, 0.5)'}`,
-                  boxShadow: isActive ? '0 4px 16px rgba(26, 63, 212, 0.1)' : '0 2px 8px rgba(10, 22, 40, 0.04)',
+                  background: isActive
+                    ? "rgba(79, 142, 247, 0.08)"
+                    : "rgba(255, 255, 255, 0.7)",
+                  backdropFilter: "blur(8px)",
+                  border: `1px solid ${isActive ? "rgba(79, 142, 247, 0.3)" : "rgba(221, 226, 240, 0.5)"}`,
+                  boxShadow: isActive
+                    ? "0 2px 8px rgba(26, 63, 212, 0.1)"
+                    : "0 1px 4px rgba(10, 22, 40, 0.04)",
                 }}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-3">
                   <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center"
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center"
                     style={{
                       background: isCompleteItem
-                        ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
+                        ? "linear-gradient(135deg, #10B981 0%, #059669 100%)"
                         : isActive
-                          ? 'linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)'
-                          : 'linear-gradient(135deg, #E8EEFF 0%, #F0F3FF 100%)',
-                      boxShadow: isCompleteItem || isActive ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
+                          ? "linear-gradient(135deg, #4F8EF7 0%, #1A3FD4 100%)"
+                          : "linear-gradient(135deg, #E8EEFF 0%, #F0F3FF 100%)",
+                      boxShadow:
+                        isCompleteItem || isActive
+                          ? "0 2px 8px rgba(0,0,0,0.15)"
+                          : "none",
                     }}
                   >
                     {isCompleteItem ? (
@@ -286,13 +304,13 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                         fill="none"
                         stroke="white"
                         strokeWidth="3"
-                        className="w-4 h-4"
+                        className="w-3 h-3 md:w-4 md:h-4"
                       >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
                     ) : isLoading ? (
                       <svg
-                        className="w-4 h-4 text-white animate-spin"
+                        className="w-3 h-3 md:w-4 md:h-4 text-white animate-spin"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -303,7 +321,7 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                       </svg>
                     ) : (
                       <span
-                        className={`text-xs font-bold ${
+                        className={`text-[8px] md:text-xs font-bold ${
                           isActive ? "text-white" : "text-[#8C98B2]"
                         }`}
                       >
@@ -312,7 +330,7 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                     )}
                   </div>
                   <span
-                    className={`text-sm font-semibold ${
+                    className={`text-xs md:text-sm font-semibold ${
                       isActive || isCompleteItem
                         ? "text-[#0A1628]"
                         : "text-[#8C98B2]"
@@ -321,13 +339,17 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
                     {check.label}
                   </span>
                 </div>
-                <span 
-                  className="text-xs font-medium"
+                <span
+                  className="text-[10px] md:text-xs font-medium"
                   style={{
-                    color: isCompleteItem ? '#059669' : isActive ? '#4F8EF7' : '#6B7799',
+                    color: isCompleteItem
+                      ? "#059669"
+                      : isActive
+                        ? "#4F8EF7"
+                        : "#6B7799",
                   }}
                 >
-                  {isCompleteItem ? "Completed" : isActive ? "In Progress" : "Pending"}
+                  {isCompleteItem ? "Done" : isActive ? "Working" : "Wait"}
                 </span>
               </motion.div>
             );
@@ -337,17 +359,17 @@ export const StepUpload = ({ onNext }: { onNext: () => void }) => {
         <AnimatePresence>
           {isComplete && (
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-5 p-4 rounded-xl text-center"
+              className="mt-3 md:mt-4 p-2 md:p-3 rounded-lg md:rounded-xl text-center"
               style={{
-                background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                boxShadow: '0 4px 16px rgba(16, 185, 129, 0.15)',
+                background: "rgba(16, 185, 129, 0.1)",
+                border: "1px solid rgba(16, 185, 129, 0.2)",
+                boxShadow: "0 2px 8px rgba(16, 185, 129, 0.15)",
               }}
             >
-              <p className="text-sm font-bold text-[#059669]">
-                All validations passed. Moving to analysis...
+              <p className="text-[10px] md:text-xs font-bold text-[#059669]">
+                All validations passed
               </p>
             </motion.div>
           )}
