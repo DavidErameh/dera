@@ -1,0 +1,37 @@
+
+### 1. The Container Dynamics (The "Flex" Effect)
+
+The six cards exist in a flex container. The motion relies on a **Width Redistribution**:
+
+* **Idle State:** All cards share an equal, smaller width. The description are hidden.
+* **Active State (Hover):** The hovered card expands significantly (e.g., from `flex: 1` to `flex: 2.5`).
+* **Reaction:** Simultaneously, the non-hovered cards shrink to occupy the remaining space. This creates a "push and pull" feeling where the cards never leave the screen; they just trade real estate.
+
+### 2. Content Reveal (The Masking & Slide)
+
+As the card expands, the internal elements (Description + Image) follow a staggered entrance:
+
+* **Direction:** The text move **vertically (Y-axis)**. They appear to slide up from the bottom or "unmask" as the card grows.
+* **Opacity:** A quick `0` to `1` opacity fade is synchronized with the upward slide.
+* **Timing:** a slight delay (approx. 50–100ms) behind the text to create a "follow-through" effect that feels more organic.
+
+### 3. The Button Micro-interaction (The "Morph")
+
+The "Read More" button at the bottom right undergoes a specific transformation:
+
+* **Shape Morph:** It transitions from a **small circle** (Idle) to a **pill-shaped (rounded rectangle)** button (Active).
+* **Color Shift:** The background color of the button shifts from a faint transparent/white to a vibrant **Light blue**.
+* **Icon Rotation:** * **Idle:** The arrow points diagonally (North-East, ~45°).
+* **Active:** As the button expands, the arrow rotates to point directly right (0°), signaling a "proceed" action.
+
+
+
+### 4. Technical Motion Specs
+
+To recreate this, the following easing and timing are used:
+
+* **Easing:** `Cubic-Bezier(0.25, 1, 0.5, 1)` (often called **Ease-Out Expo**). This makes the start of the expansion very fast and the finish very smooth.
+* **Duration:** Approximately **400ms – 600ms**. Anything faster feels "jerky," and anything slower feels "heavy."
+* **Masking:** The card uses `overflow: hidden` so that the image and description don't spill out over the borders during the resizing process.
+
+---
